@@ -7,10 +7,12 @@ entrada1 = document.getElementById("e1");
 prevista = document.querySelector("div");
 entrada0.focus();
 entrada0.onchange = function() {
-	a0 = entrada0.files[0];
+	preg = [];
+	leer_a_preg( preg, entrada0.files[0] );
+};
+function leer_a_preg( preg_v, archivo_x ) {
 	lector = new FileReader();
 	lector.onloadend = function() {
-		var preg = [];
 		preg_dat = JSON.parse( lector.result );
 		/* hacemos una prueba con la pregunta preg_dat[0]
 		   el formato de preg_datos[ii] se convierte en
@@ -35,9 +37,8 @@ entrada0.onchange = function() {
 		document.querySelector("input[type='button']").
 			onclick = al_rsp_rll ( preg[0] );
 	}
-	if( a0 )
-		lector.readAsText( a0 );
-};
+	if( archivo_x ) lector.readAsText( archivo_x );
+}
 function al_rsp_rll( preg_x ) {
 	function al_rsp() {
 		preg_x.rsp = new Array;
