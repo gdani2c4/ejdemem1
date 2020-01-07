@@ -7,14 +7,9 @@ entrada1 = document.getElementById("e1");
 prevista = document.querySelector("div");
 entrada0.focus();
 entrada0.onchange = function() {
-	preg = [];
-	leer_a_preg( preg, entrada0.files[0] );
-};
-function leer_a_preg( preg_v, archivo_x ) {
-	lector = new FileReader();
-	lector.onloadend = function() {
-		preg_v = [];
-		preg_dat_as( preg_v, JSON.parse( lector.result ) );
+	preg_v = [];
+	leer_a_preg( preg_v, entrada0.files[0] );
+	setTimeout( function() {
 		/* hacemos una prueba con la pregunta preg_dat[0]
 		   el formato de preg_datos[ii] se convierte en
 		   preg[ii]
@@ -32,9 +27,16 @@ function leer_a_preg( preg_v, archivo_x ) {
 		 */
 		document.body.innerHTML = preg_v[0].html;
 		document.body.innerHTML +=
-		'<input type="button" value="seguir">';
+			'<input type="button" value="seguir">';
 		document.querySelector("input[type='button']").
 			onclick = al_rsp_rll ( preg_v[0] );
+	}, 1000 );
+};
+function leer_a_preg( preg_v, archivo_x ) {
+	lector = new FileReader();
+	lector.onloadend = function() {
+//		preg_v = [];
+		preg_dat_as( preg_v, JSON.parse( lector.result ) );
 	}
 	if( archivo_x ) lector.readAsText( archivo_x );
 }
