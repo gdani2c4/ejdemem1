@@ -1,3 +1,7 @@
+const theta = 1/4; // el peso de la respuesta actual
+/* entra al calcular la calificación del usuario a
+   la pregunta que acaba de contestar
+ */
 function main0() {
 	document.body.innerHTML =
 		"<input id = e0 type = file >" +
@@ -29,11 +33,19 @@ function main_cont1( preg_v ) {
 	 preg[ii].marca es la marca, igual como en
 	   "preg_dat"
 	 */
-	document.body.innerHTML = preg_v[0].html;
-	document.body.innerHTML +=
+	impr_preg(  preg_v[ escoger_preg( preg_v ) ]  );
+}
+function impr_preg( preg_x ) {
+	document.body.innerHTML = preg_x.html +
 		'<input type="button" value="seguir">';
-	document.querySelector("input[type='button']").
-		onclick = al_rsp_rll ( preg_v[0] );
+	document.querySelector( 'input[type = "button"]' ).
+		onclick = al_rsp_rll( preg_x );
+}
+function escoger_preg( preg_v ) {
+	let pregv_marca = [];
+	for( ii of preg_v ) pregv_marca.push( ii.marca );
+	return pregv_marca.indexOf(  Math.max(
+		...pregv_marca )  );
 }
 function leer_a_preg( preg_v, archivo_x ) {
 	let lector = new FileReader();
@@ -46,9 +58,10 @@ function leer_a_preg( preg_v, archivo_x ) {
 function preg_dat_as( preg_v, dat_x ) {
 	for( preg_dat_x of dat_x ) {
 		let preg_x = {};
-		preg_x.html = "", let xx = 0;
+		preg_x.html = "";
+		let xx = 0;
 		preg_x.slcn = new Array;
-		preg_x.marca = [], preg_x.preg = [];
+		preg_x.preg = [];
 		let aa = [];
 		let ahtml = {"&": "&amp;",
 				 "<": "&lt;",
@@ -85,18 +98,22 @@ function preg_dat_as( preg_v, dat_x ) {
 }
 function al_rsp_rll( preg_x ) {
 	function al_rsp() {
-		let marca_x = 0;
 		preg_x.rsp = new Array;
 		for( ii in preg_x.slcn )
 			preg_x.rsp[ii] = document.querySelector(
 				`#e${ii}`).value;
-		marca_x = marca( preg_x.rsp, preg_x.slcn,
-			preg_x.preg );
-		preg_x.marca[0] += marca_x;
-		preg_x.marca[1]++;
+		preg_x.marca = marca_preg_sum( preg_x.marca,
+			marca( preg_x.rsp, preg_x.slcn,
+				preg_x.preg )
+		);
 		document.body.innerHTML += preg_x.marca;
 	}
 	return al_rsp;
+}
+function marca_preg_sum( val, delta ) {
+	return 1/2 * (
+		(1 - theta) * val + theta * delta
+	);
 }
 /* marca - califica la respuesta "rsp" dado la solución
    "slcn" y el texto de la pregunta
