@@ -35,16 +35,21 @@ function main_cont1( preg_v ) {
 	 */
 	impr_preg(  preg_v[ escoger_preg( preg_v ) ]  );
 }
+/* evento mandar respuesta --> al_rsp: actualizar marca -->
+	imprimir pregunta de nuevo
+ */
 function impr_preg( preg_x ) {
 	document.body.innerHTML = preg_x.html +
 		'<input type="button" value="seguir">';
 	document.querySelector( 'input[type = "button"]' ).
-		onclick = al_rsp_rll( preg_x );
+		/* pasa también "preg_v" entero para llevarlo
+			a otras funciones mas adelante: */
+		onclick = al_rsp_rll( preg_x, preg_v );
 }
 function escoger_preg( preg_v ) {
 	let pregv_marca = [];
 	for( ii of preg_v ) pregv_marca.push( ii.marca );
-	return pregv_marca.indexOf(  Math.max(
+	return pregv_marca.indexOf(  Math.min(
 		...pregv_marca )  );
 }
 function leer_a_preg( preg_v, archivo_x ) {
@@ -96,7 +101,7 @@ function preg_dat_as( preg_v, dat_x ) {
 	}
 	return 0;
 }
-function al_rsp_rll( preg_x ) {
+function al_rsp_rll( preg_x, preg_v ) {
 	function al_rsp() {
 		preg_x.rsp = new Array;
 		for( ii in preg_x.slcn )
@@ -106,14 +111,13 @@ function al_rsp_rll( preg_x ) {
 			marca( preg_x.rsp, preg_x.slcn,
 				preg_x.preg )
 		);
-		document.body.innerHTML += preg_x.marca;
+		console.log( preg_x.marca);
+		main_cont1( preg_v );
 	}
 	return al_rsp;
 }
 function marca_preg_sum( val, delta ) {
-	return 1/2 * (
-		(1 - theta) * val + theta * delta
-	);
+		return (1 - theta) * val + theta * delta;
 }
 /* marca - califica la respuesta "rsp" dado la solución
    "slcn" y el texto de la pregunta
