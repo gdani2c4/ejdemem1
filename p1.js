@@ -3,6 +3,9 @@ const theta = 1/4; // el peso de la respuesta actual
    la pregunta que acaba de contestar
  */
 function main0() {
+	main_bucle0();
+}
+function main_bucle0() {
 	document.body.innerHTML =
 		"<input id = e0 type = file >" +
 		"<input type = button id = e1 value = seguir>" +
@@ -33,18 +36,33 @@ function main_cont1( preg_v ) {
 	 preg[ii].marca es la marca, igual como en
 	   "preg_dat"
 	 */
-	impr_preg(  preg_v[ escoger_preg( preg_v ) ]  );
+	impr_preg(  preg_v[ escoger_preg( preg_v ) ], preg_v  );
 }
+/* event "onclick" de salir del la bucle del ejercicio -->
+   main_cont2: ofrece al usuario guardar el archivo salir sin
+   guardar
+ */
+function main_cont2( preg_v ) { return function() {
+	document.body.innerHTML =
+		'<p>¿guardar los resultados?</p>' +
+		'<input type = button id = e1 value = ' +
+			'"salir sin guardar">';
+		document.querySelector("#e1").onclick =
+			main_bucle0;
+}; }
 /* evento mandar respuesta --> al_rsp: actualizar marca -->
 	imprimir pregunta de nuevo
  */
-function impr_preg( preg_x ) {
+function impr_preg( preg_x, preg_v ) {
 	document.body.innerHTML = preg_x.html +
-		'<input type="button" value="seguir">';
-	document.querySelector( 'input[type = "button"]' ).
+		'<input type="button" value="seguir">' +
+		'<input type="button" value="salir">';
+	document.querySelector( 'input[value = "seguir"]' ).
 		/* pasa también "preg_v" entero para llevarlo
 			a otras funciones mas adelante: */
-		onclick = al_rsp_rll( preg_x, preg_v );
+		onclick = al_rsp( preg_x, preg_v );
+	document.querySelector( 'input[value = "salir"]' ).
+		onclick = main_cont2( preg_v );
 }
 function escoger_preg( preg_v ) {
 	let pregv_marca = [];
@@ -101,21 +119,18 @@ function preg_dat_as( preg_v, dat_x ) {
 	}
 	return 0;
 }
-function al_rsp_rll( preg_x, preg_v ) {
-	function al_rsp() {
-		preg_x.rsp = new Array;
-		for( ii in preg_x.slcn )
-			preg_x.rsp[ii] = document.querySelector(
-				`#e${ii}`).value;
-		preg_x.marca = marca_preg_sum( preg_x.marca,
-			marca( preg_x.rsp, preg_x.slcn,
-				preg_x.preg )
-		);
-		console.log( preg_x.marca);
-		main_cont1( preg_v );
-	}
-	return al_rsp;
-}
+function al_rsp( preg_x, preg_v ) { return function() {
+	preg_x.rsp = new Array;
+	for( ii in preg_x.slcn )
+		preg_x.rsp[ii] = document.querySelector(
+			`#e${ii}`).value;
+	preg_x.marca = marca_preg_sum( preg_x.marca,
+		marca( preg_x.rsp, preg_x.slcn,
+			preg_x.preg )
+	);
+	console.log( preg_x.marca);
+	main_cont1( preg_v );
+}; }
 function marca_preg_sum( val, delta ) {
 		return (1 - theta) * val + theta * delta;
 }
