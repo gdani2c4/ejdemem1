@@ -7,22 +7,22 @@ function main0() {
 }
 function main_bucle0() {
 	document.body.innerHTML =
-		"<input id = e0 type = file >" +
-		"<input type = button id = e1 value = seguir>" +
-		"<div></div>";
-	entrada0 = document.getElementById("e0");
-	entrada1 = document.getElementById("e1");
-	prevista = document.querySelector("div");
-	entrada0.focus();
-	entrada0.onchange = function() {
+		'<a href = "#" id = n2>salir</a></br></br>' +
+		'<div id = cnt><input id = e0 type = file>' +
+		'</div>';
+	document.querySelector( "#n2" ).onclick =
+		function() {
+			document.body.innerHTML = "fin";
+		};
+	e0 = document.getElementById("e0");
+	e0.focus();
+	e0.onchange = function() {
 		preg_v = [];
-		leer_a_preg( preg_v, entrada0.files[0] );
+		leer_a_preg( preg_v, e0.files[0] );
 	};
 }
-// leer_a_preg --> preg_dat_as; main_cont1
-function main_cont1( preg_v ) {
-	/* hacemos una prueba con la pregunta preg_dat[0]
-	   el formato de preg_datos[ii] se convierte en
+function leer_a_preg( preg_v, archivo_x ) {
+	/* el formato de preg_datos[ii] se convierte en
 	   preg[ii]
 
 	 preg[ii].html	la pregunta en forma html -
@@ -36,33 +36,52 @@ function main_cont1( preg_v ) {
 	 preg[ii].marca es la marca, igual como en
 	   "preg_dat"
 	 */
-	impr_preg(  preg_v[ escoger_preg( preg_v ) ], preg_v  );
+	let lector = new FileReader();
+	lector.onloadend = function() {
+		preg_dat_as( preg_v, JSON.parse( lector.result ) );
+		main_cont1( preg_v );
+	};
+	if( archivo_x ) lector.readAsText( archivo_x );
 }
-/* event "onclick" de salir del la bucle del ejercicio -->
-   main_cont2: ofrece al usuario guardar el archivo salir sin
-   guardar
- */
-function main_cont2( preg_v ) { return function() {
-	document.body.innerHTML =
-		'<p>¿guardar los resultados?</p>' +
-		'<input type = button id = e1 value = ' +
-			'"salir sin guardar">';
-		document.querySelector("#e1").onclick =
-			main_bucle0;
+/* después de construir "preg_v", prepara la salida
+   para mostrar la pregunta siguiente al usuario */
+function main_cont1( preg_v ) {
+	if( ! document.querySelector( "#n0" ) ) {
+	document.querySelector( "#n2" ).insertAdjacentHTML(
+		"beforebegin",
+		'<a href = "#" id = n0 download>guardar</a>' +
+		"&nbsp;".repeat(4) +
+		'<a href = "#" id = n1>al inicio</a>' +
+		"&nbsp;".repeat(4) );
+	document.querySelector( "#n1" ).onclick = main_bucle0;
+	}
+	impr_preg(  preg_v[ escoger_preg( preg_v ) ], preg_v  );
+	n0_href( preg_v );
+}
+function al_rsp( preg_x, preg_v ) { return function() {
+	preg_x.rsp = new Array;
+	for( ii in preg_x.slcn )
+		preg_x.rsp[ii] = document.querySelector(
+			`#e${ii}`).value;
+	preg_x.marca = marca_preg_sum( preg_x.marca,
+		marca( preg_x.rsp, preg_x.slcn,
+			preg_x.preg )
+	);
+	console.log( preg_x.marca);
+	main_cont1( preg_v );
 }; }
 /* evento mandar respuesta --> al_rsp: actualizar marca -->
 	imprimir pregunta de nuevo
  */
 function impr_preg( preg_x, preg_v ) {
-	document.body.innerHTML = preg_x.html +
-		'<input type="button" value="seguir">' +
-		'<input type="button" value="salir">';
-	document.querySelector( 'input[value = "seguir"]' ).
-		/* pasa también "preg_v" entero para llevarlo
-			a otras funciones mas adelante: */
+	document.querySelector("#cnt").innerHTML = preg_x.html +
+		"&nbsp;".repeat(4) +
+		'<a href = "#" id="n3">seguir</a>';
+	document.querySelector("#e0").focus;
+	/* pasa también "preg_v" entero para llevarlo
+		a otras funciones mas adelante: */
+	document.querySelector( "#n3" ).
 		onclick = al_rsp( preg_x, preg_v );
-	document.querySelector( 'input[value = "salir"]' ).
-		onclick = main_cont2( preg_v );
 }
 function escoger_preg( preg_v ) {
 	let pregv_marca = [];
@@ -70,17 +89,10 @@ function escoger_preg( preg_v ) {
 	return pregv_marca.indexOf(  Math.min(
 		...pregv_marca )  );
 }
-function leer_a_preg( preg_v, archivo_x ) {
-	let lector = new FileReader();
-	lector.onloadend = function() {
-		preg_dat_as( preg_v, JSON.parse( lector.result ) );
-		main_cont1( preg_v );
-	}
-	if( archivo_x ) lector.readAsText( archivo_x );
-}
 function preg_dat_as( preg_v, dat_x ) {
 	for( preg_dat_x of dat_x ) {
 		let preg_x = {};
+		preg_x.ctndo = preg_dat_x.ctndo;
 		preg_x.html = "";
 		let xx = 0;
 		preg_x.slcn = new Array;
@@ -119,18 +131,6 @@ function preg_dat_as( preg_v, dat_x ) {
 	}
 	return 0;
 }
-function al_rsp( preg_x, preg_v ) { return function() {
-	preg_x.rsp = new Array;
-	for( ii in preg_x.slcn )
-		preg_x.rsp[ii] = document.querySelector(
-			`#e${ii}`).value;
-	preg_x.marca = marca_preg_sum( preg_x.marca,
-		marca( preg_x.rsp, preg_x.slcn,
-			preg_x.preg )
-	);
-	console.log( preg_x.marca);
-	main_cont1( preg_v );
-}; }
 function marca_preg_sum( val, delta ) {
 		return (1 - theta) * val + theta * delta;
 }
@@ -145,3 +145,13 @@ function marca( rsp, slcn, texto ) {
 	return marca_x / slcn.length;
 }
 main0();
+function n0_href( preg_v ) {
+	let preg_dat = [];
+	for( ii of preg_v ) preg_dat.push( {
+			"ctndo": ii.ctndo,
+			"marca": ii.marca
+		} );
+	document.querySelector("#n0").setAttribute("href",
+		"data:application/json," +
+		JSON.stringify( preg_dat )  );
+}
