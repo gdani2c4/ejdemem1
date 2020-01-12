@@ -77,7 +77,7 @@ function impr_preg( preg_x, preg_v ) {
 	document.querySelector("#cnt").innerHTML = preg_x.html +
 		"&nbsp;".repeat(4) +
 		'<a href = "#" id="n3">seguir</a>';
-	document.querySelector("#e0").focus;
+	document.querySelector("#e0").focus();
 	/* pasa también "preg_v" entero para llevarlo
 		a otras funciones mas adelante: */
 	document.querySelector( "#n3" ).
@@ -99,15 +99,16 @@ function preg_dat_as( preg_v, dat_x ) {
 		preg_x.preg = [];
 		let aa = [];
 		let ahtml = {"&": "&amp;",
-				 "<": "&lt;",
-				 ">": "&gt;",
-				 "\"": "&quot;"
-				};
+			"<": "&lt;",
+			">": "&gt;",
+			"\"": "&quot;",
+			"\n": "<br>"
+		};
 		for( ii of preg_dat_x.ctndo ) {
 			if( !Array.isArray( ii ) ) {
 				preg_x.preg.push( ii );
 				preg_x.html += ii.replace(
-					/>|<|"|&/g,
+					/>|<|"|&|\n/g,
 					function(xx) { return ahtml[ xx ]; }
 				);
 			}

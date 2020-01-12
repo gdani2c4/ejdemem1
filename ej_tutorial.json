@@ -1,0 +1,23 @@
+[
+{"ctndo": [
+
+"Hacer un archivo de ejercicios:\nAbre un archivo de texto vacio. No un archivo \"Word\" sino un archivo con \"bloc de notas\" si es de \"Windows\" (por ejemplo).\n",
+
+"Entra como primeros caracteres:\n\n[\n{\"ctndo\":\n\nDespues, entra una comilla y corchete y empieza a escribir el texto que quieres para el ejercicio. Ejemplo:\n\n[\n{\"ctndo\":\n[\"one two \"\n\nAhora quieres como respuesta \"three\", entonces pones el \"three\" asi:\n\n[\n{\"ctndo\":\n[\"one two \",[\"three\"]\n\nasí entre corchetes y comillas. ",
+
+"Luego quieres escribir \"four\" despues del hueco para el \"three\", así:\n\n[\n{\"ctndo\":\n[\"one two \",[\"three\"],\" four!\"\n\n",
+
+"para indicar el fin de la pregunta al orden, cierrala con un ] y coma y añade:\n\n\"marca\":0\n}\n\nde modo que la pregunta entera sale así:\n\n[\n{\"ctndo\":\n[\"one two \",[\"three\"],\" four!\"],\n\"marca\":0\n}\n\n",
+
+"La pregunta aún no está lista para darla al programa. Después de cerrar la última pregunta hay que cerrar la lista de preguntas con un ] así: \n\n[\n{\"ctndo\":\n[\"one two \",[\"three\"],\" four!\"],\n\"marca\":0\n}\n]\n\n",
+
+"ahora para añadir otra pregunta, iremos a un paso atrás - aún no cerramos con la ] del paso anterior. Ese ] cierra la lista de preguntas. Dejamos ese ] para después de la ultima pregunta. Por ahora, ponemos en su lugar una coma después de la pregunta actual:\n\n[\n{\"ctndo\":\n[\"one two \",[\"three\"],\" four!\"],\n\"marca\":0\n},\n\n",
+
+"y luego la pregunta siguiente, y luego la siguiente etc:\n\n[\n{\"ctndo\":\n[\"one two \",[\"three\"],\" four!\"],\n\"marca\":0\n},\n\n{\"ctndo\":\n[\"five \",[\"six\"],\" seven!\"],\n\"marca\":0\n},\n\n{\"ctndo\":\n[\"eight nine \",[\"ten\"],\"!\"],\n\"marca\":0\n}\n\n",
+
+"lo que queda es cerrar la lista de preguntas, como antes, con un ] después de la última pregunta:\n\n...\n\n{\"ctndo\":\n[\"eight nine \",[\"ten\"],\"!\"],\n\"marca\":0\n}\n]\n\n",
+
+"puedes guardar el resultado y probarlo. Si no funciona, mira bien el sintáxis, y si aún sigue, puede registrar un error en github.com/gdani2c4/ejdemem1"], 
+
+"marca": 0}
+]
