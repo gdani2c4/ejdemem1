@@ -38,3 +38,12 @@
     Calcular la marca del usuario, actualizar su vector
     de estado `preg_v` con ella --> pregunta siguiente
     `main_cont1( preg_v )`
+
+## analiza sintactico
+
+- función "main" del analizador del formato "rlh"
+
+    `as_rlh( rlh_dat, preg_v )`
+
+    lee datos en el formato "rlh" (rellenar los huecos)
+    al vector de preguntas "preg_v"

@@ -83,3 +83,6 @@ function n0_href( preg_v ) {
 		"data:application/json," +
 		JSON.stringify( preg_dat )  );
 }
+err( cda ) {
+	document.querySelector( "#err" ).innerHTML = cda;
+}
