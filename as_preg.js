@@ -1,8 +1,8 @@
-// as_cda	analizador sintáctico de cadenas
+// as_hf	analizador sintáctico de cadenas
 // con carácter de escape "cde" y carácter de
 // terminación "cdt". Actualizar el índice "ll.val"
 // en que terminó la función.
-funcion leer_cda( cda_e, rstdo, cde, cdt ) {
+function leer_hf( cda_e, rstdo, cde, cdt ) {
 	let ii = 0;
 	rstdo.cda = "";
 	for( ii = 0; ii < cda_e.length; ii++ ) {
@@ -20,10 +20,8 @@ funcion leer_cda( cda_e, rstdo, cde, cdt ) {
 	return 0;
 }
 function as_ctdo( ctdo_dat, ctdo_rstdo ) {
-	ctdo_rstdo.slcn = [];
-	ctdo_rstdo.preg = [];
 	let rstdo = {};
-	leer_hf( ctdo_dat, rstdo, '\', '{' );
+	leer_hf( ctdo_dat, rstdo, '\\', '{' );
 	/*        caso               	significa
 
 	 índice devuelto < |ctdo_dat|	índ. de cdt
@@ -39,23 +37,23 @@ function as_ctdo( ctdo_dat, ctdo_rstdo ) {
 	}
 	// guarda la pregunta hasta el '{'
 	if( rstdo.cda ) ctdo_rstdo.preg.push( rstdo.cda );
-	ctdo_dat = ctdo_dat.slice( rstdo.nn + 1 );
 	// caso llegó al fin de la cadena de contenido
 	if( rstdo.nn == ctdo_dat.length ) return 0;
+	ctdo_dat = ctdo_dat.slice( rstdo.nn + 1 );
 	// caso anticipar una solición
-	else {
-		rstdo = {};
-		leer_hf( ctdo_dat, rstdo, '\', '}' );
-		if( rstdo.nn == ctdo_dat.length ) {
-			err( "'{' sin terminar" );
-			return 1;
-		}
-		// guarda la solución entre las '{', '}'
-		ctdo_rstdo.slcn.push( rstdo.cda );
-		// marca el hueco para la solución
-		ctdo_rstdo.preg.cat([,]);
-		ctdo_dat = ctdo_dat.slice( rstdo.nn + 1 );
+	rstdo = {};
+	leer_hf( ctdo_dat, rstdo, '\\', '}' );
+	if( rstdo.nn == ctdo_dat.length ) {
+		err( "'{' sin terminar" );
+		return 1;
 	}
+	// guarda la solución entre las '{', '}'
+	ctdo_rstdo.slcn.push( rstdo.cda );
+	// marca el hueco para la solución
+// no funcionó, no se añadó el espacio al arreglo -
+//	ctdo_rstdo.preg.concat([,]);
+	ctdo_rstdo.preg.push(undefined);
+	ctdo_dat = ctdo_dat.slice( rstdo.nn + 1 );
 	if( as_ctdo( ctdo_dat, ctdo_rstdo ) ) return 1;
 }
 function as_marca( marca_dat, rstdo ) {
