@@ -2,8 +2,8 @@
 	imprimir pregunta de nuevo
  */
 function impr_preg( preg_x, preg_v ) {
-	document.querySelector("#cnt").innerHTML = preg_x.html +
-		"&nbsp;".repeat(4) +
+	document.querySelector("#cnt").innerHTML =
+		preg_html( preg_x.preg ) +"&nbsp;".repeat(4) +
 		'<a href = "#" id="n3">seguir</a>';
 	document.querySelector("#e0").focus();
 	/* pasa también "preg_v" entero para llevarlo
@@ -17,48 +17,25 @@ function escoger_preg( preg_v ) {
 	return pregv_marca.indexOf(  Math.min(
 		...pregv_marca )  );
 }
-function preg_dat_as( preg_v, dat_x ) {
-	for( preg_dat_x of dat_x ) {
-		let preg_x = {};
-		preg_x.ctndo = preg_dat_x.ctndo;
-		preg_x.html = "";
-		let xx = 0;
-		preg_x.slcn = new Array;
-		preg_x.preg = [];
-		let aa = [];
-		let ahtml = {"&": "&amp;",
-			"<": "&lt;",
-			">": "&gt;",
-			"\"": "&quot;",
-			"\n": "<br>"
-		};
-		for( ii of preg_dat_x.ctndo ) {
-			if( !Array.isArray( ii ) ) {
-				preg_x.preg.push( ii );
-				preg_x.html += ii.replace(
-					/>|<|"|&|\n/g,
-					function(xx) { return ahtml[ xx ]; }
-				);
-			}
-			/* al llegar a un arreglo de soluciones mientras
-			   itera por preg_dat_x, se añade un cuadrado de
-			   texto para cada respuesta, esto a preg_x.html,
-			   y el arreglo se añade sin las soluciones a
-			   la plantilla de la pregunta, preg_x.preg
-			 */
-			else {
-				for( jj of ii ) {
-					aa.push(xx);
-					preg_x.slcn[xx] = jj;
-					preg_x.html +=  `<input id = "e${xx++}">`;
-				}
-				preg_x.preg.push( aa );
-			}
-		}	// fin del bucle por datos de preg. ii
-		preg_x.marca = preg_dat_x.marca;
-		preg_v.push( preg_x );
+function preg_html( preg_con_huecos ) {
+	let xx = 0;
+	let rstdo = "";
+	let ahtml = {
+		"&":	"&amp;",
+		"<":	"&lt;",
+		">":	"&gt;",
+		"\"":	"&quot;",
+		"\n":	"<br>",
+		" ":	"&nbsp;"
+	};
+	for( ii of preg_con_huecos ) {
+		if( ii == undefined ) rstdo +=
+			`<input id = "e${xx++}">`;
+		else rstdo += ii.replace(
+				/>|<|"|&|\n| /g,
+				function(cc) { return ahtml[cc]; } );
 	}
-	return 0;
+	return rstdo;
 }
 function marca_preg_sum( val, delta ) {
 		return (1 - theta) * val + theta * delta;

@@ -7,9 +7,11 @@ function main0() {
 }
 function main_bucle0() {
 	document.body.innerHTML =
-		'<a href = "#" id = n2>salir</a></br></br>' +
-		'<div id = cnt><input id = e0 type = file>' +
-		'</div>';
+		'<div id = nav ><a href = "#" id = n2 >' +
+			'salir</a></div></br></br>' +
+		'<div id = cnt ><input id = e0 type = file >' +
+			'</div>' +
+		'</br></br><div id = err ></div>';
 	document.querySelector( "#n2" ).onclick =
 		function() {
 			document.body.innerHTML = "fin";
@@ -42,7 +44,8 @@ function leer_a_preg( archivo_x )
 	let preg_v = [];
 	let lector = new FileReader();
 	lector.onloadend = function() {
-		preg_dat_as( preg_v, JSON.parse( lector.result ) );
+//		preg_dat_as( preg_v, JSON.parse( lector.result ) );
+		as_rlh( lector.result, preg_v );
 		main_cont1( preg_v );
 	};
 	if( archivo_x ) lector.readAsText( archivo_x );
