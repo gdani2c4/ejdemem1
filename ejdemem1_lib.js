@@ -51,14 +51,26 @@ function marca( rsp, slcn, texto ) {
 	return marca_x / slcn.length;
 }
 function n0_href( preg_v ) {
-	let preg_dat = [];
-	for( ii of preg_v ) preg_dat.push( {
-			"ctndo": ii.ctndo,
-			"marca": ii.marca
-		} );
+	let rlh_dat = "";
+	let xx = 0;
+	for( preg_ii of preg_v ) {
+		rlh_dat += ficha0 + preg_ii.marca + ":\n";
+		for( cda_jj of preg_ii.preg ) {
+			if( cda_jj == undefined ) rlh_dat +=
+				"{" + preg_ii.slcn[xx] + "}";
+			else rlh_dat += cda_jj;
+		}
+		rlh_dat += '\n';
+	}
+	rlh_dat += "---fin";
+//	let preg_dat = [];
+//	for( ii of preg_v ) preg_dat.push( {
+//			"ctndo": ii.ctndo,
+//			"marca": ii.marca
+//		} );
+	rlh_dat = btoa( rlh_dat );
 	document.querySelector("#n0").setAttribute("href",
-		"data:application/json," +
-		JSON.stringify( preg_dat )  );
+		"data:text/plain;base64," + rlh_dat);
 }
 function err( cda ) {
 	document.querySelector( "#err" ).innerHTML = cda;
