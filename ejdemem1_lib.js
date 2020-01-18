@@ -68,9 +68,19 @@ function n0_href( preg_v ) {
 //			"ctndo": ii.ctndo,
 //			"marca": ii.marca
 //		} );
-	rlh_dat = btoa( rlh_dat );
+	rlh_dat = rlh_dat.replace( /.|\n/g, function ( xx ) {
+    xx = parseInt( xx.charCodeAt(), 10 );
+    if( xx < 0x80 ) return "%" + xx.toString(16).
+		padStart(2,0);
+    else if( xx > 0x80 && xx < 0x7FF ) return "" +
+        "%" + ( ( xx >>> 6 ) + 0xC0 ).toString(16).
+			padStart( 2, 0 ) +
+        "%" + ( xx - (xx >>> 6 << 6) + 0x80 ).toString(16).
+			padStart( 2, 0 );
+    else { console.log("carácter desconocido"); return 1; }
+	} );
 	document.querySelector("#n0").setAttribute("href",
-		"data:text/plain;base64," + rlh_dat);
+		"data:text/plain;charset=UTF-8," + rlh_dat);
 }
 function err( cda ) {
 	document.querySelector( "#err" ).innerHTML = cda;
