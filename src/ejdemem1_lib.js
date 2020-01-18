@@ -51,23 +51,9 @@ function marca( rsp, slcn, texto ) {
 	return marca_x / slcn.length;
 }
 function n0_href( preg_v ) {
-	let rlh_dat = "";
-	let xx = 0;
-	for( preg_ii of preg_v ) {
-		rlh_dat += ficha0 + preg_ii.marca + ":\n";
-		for( cda_jj of preg_ii.preg ) {
-			if( cda_jj == undefined ) rlh_dat +=
-				"{" + preg_ii.slcn[xx] + "}";
-			else rlh_dat += cda_jj;
-		}
-		rlh_dat += '\n';
-	}
-	rlh_dat += "---fin";
-//	let preg_dat = [];
-//	for( ii of preg_v ) preg_dat.push( {
-//			"ctndo": ii.ctndo,
-//			"marca": ii.marca
-//		} );
+	let rstdo = { rlh_dat: "" };
+	rlh_gen( preg_v, rstdo );
+	// utf-16 a utf-8 hexadécimo binario de formato url-datos
 	rlh_dat = rlh_dat.replace( /.|\n/g, function ( xx ) {
     xx = parseInt( xx.charCodeAt(), 10 );
     if( xx < 0x80 ) return "%" + xx.toString(16).

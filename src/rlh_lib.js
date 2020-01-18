@@ -1,24 +1,3 @@
-// as_hf	analizador sintáctico de cadenas
-// con carácter de escape "cde" y carácter de
-// terminación "cdt". Actualizar el índice "ll.val"
-// en que terminó la función.
-function leer_hf( cda_e, rstdo, cde, cdt ) {
-	let ii = 0;
-	rstdo.cda = "";
-	for( ii = 0; ii < cda_e.length; ii++ ) {
-		// caso: carácter de escape
-		if( cda_e[ii] == cde ) {
-			if( ++ii == cda_e.length ) break;
-			rstdo.cda += cda_e[ii];
-		}
-		// caso: ficha de terminación
-		else if( cda_e[ii] == cdt ) break;
-		// caso: carácter no sintáctico
-		else rstdo.cda += cda_e[ii];
-	}
-	rstdo.nn = ii;
-	return 0;
-}
 function as_ctdo( ctdo_dat, ctdo_rstdo ) {
 	let rstdo = {};
 	leer_hf( ctdo_dat, rstdo, '\\', '{' );
@@ -56,6 +35,27 @@ function as_ctdo( ctdo_dat, ctdo_rstdo ) {
 	ctdo_dat = ctdo_dat.slice( rstdo.nn + 1 );
 	if( as_ctdo( ctdo_dat, ctdo_rstdo ) ) return 1;
 }
+// leer_hf	analizador sintáctico de cadenas
+// con carácter de escape "cde" y carácter de
+// terminación "cdt". Actualizar el índice "rstdo.nn"
+// en que terminó la función.
+function leer_hf( cda_e, rstdo, cde, cdt ) {
+	let ii = 0;
+	rstdo.cda = "";
+	for( ii = 0; ii < cda_e.length; ii++ ) {
+		// caso: carácter de escape
+		if( cda_e[ii] == cde ) {
+			if( ++ii == cda_e.length ) break;
+			rstdo.cda += cda_e[ii];
+		}
+		// caso: ficha de terminación
+		else if( cda_e[ii] == cdt ) break;
+		// caso: carácter no sintáctico
+		else rstdo.cda += cda_e[ii];
+	}
+	rstdo.nn = ii;
+	return 0;
+}
 function as_marca( marca_dat, rstdo ) {
 	if( !marca_dat.match(
 		/^0*[01]$|^0*1[,.]0*$|^0*[,.][0-9]*$/ ) ) {
@@ -65,4 +65,18 @@ function as_marca( marca_dat, rstdo ) {
 	rstdo.marca = parseFloat(
 		marca_dat.replace( ',', '.' )  );
 	return 0;
+}
+function rlh_gen( preg_v, rstdo )
+{
+	let xx = 0;
+	for( preg_ii of preg_v ) {
+		rstdo.rlh_dat += ficha0 + preg_ii.marca + ":\n";
+		for( cda_jj of preg_ii.preg ) {
+			if( cda_jj == undefined ) rstdo.rlh_dat +=
+				"{" + preg_ii.slcn[xx] + "}";
+			else rstdo.rlh_dat += cda_jj;
+		}
+		rstdo.rlh_dat += '\n';
+	}
+	rstdo.rlh_dat += "---fin";
 }
