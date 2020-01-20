@@ -1,0 +1,82 @@
+---0:
+ejercicio de memoria 1: rellenar los {huecos}
+cada pregunta empieza con un renglón de la forma:
+
+\---[marca]:
+
+donde la marca es del usuario. como empiezas un
+archivo nuevo, pondrás en dicho renglón un 0 como:
+
+\---0:
+
+pero puede ser cualquer valor entre 0 y 1 inclusivo
+
+luego escribes la pregunta misma, con los huecos
+entre corchetes \{, \}, como así:
+
+\---0:
+a b c \{d\} e
+
+
+lo que al acabar de escribir el archivo saldrá así:
+a b {c} d
+
+con la solución "c".
+luego sigue con la pregunta siguiente, empezar con el:
+
+\---0:
+
+y después la pregunta:
+
+\---0:
+a b \{c\} d
+\---0:
+1 2 3 \{4\}
+
+al haber entrado la última, cierre la lista con un
+\---fin
+así:
+
+\---0:
+a b \{c\} d
+\---0:
+1 2 3 \{4\}
+\---fin
+
+para ver como sale el ejemplo, puedes:
+a - escribir "" en el cuadrado de entrada en el inicio de
+ésta página y luego ir al enlace "seguir" abajo
+
+o,
+
+b - ir al enlace arriba "al inicio" y en la elección de
+archivos escoge "ejemplo_del_tutorial.rlh"
+
+o,
+
+c - en vez del archivo del alternativa anterior,
+haz tu propio archivo de preguntas en el formato
+que se acabo de enseñar
+
+o hacer todas las alternativas a la vez etc..
+---0:
+a b c {d}
+---0:
+después de jugar a un ejercicio, al terminar, para guardar
+tu calificación nueva, ir al enlace "guardar" arriba y
+si quieres sobrescribe el archivo de preguntas actual. eso
+actualiza la calificación.
+
+para ver más información sobre el formato '.rlh' del archivo
+de preguntas / ejercicio, como cómo poner los simbolitos
+\{, \} en un ejercicio o un renglón como este:
+
+\---fin
+
+sin que ellos toman su significado único como se explicó
+en el tutorial, ud puede leer "formato_rlh.md"
+[18-1-20] nota: todavía falta dicho documento
+
+para salir, ve al enlace "salir" que se encuentra más
+arriba.
+---fin
