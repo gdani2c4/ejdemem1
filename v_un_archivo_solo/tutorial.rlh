@@ -4,8 +4,9 @@ cada pregunta empieza con un renglón de la forma:
 
 \---[marca]:
 
-donde la marca es del usuario. como empiezas un
-archivo nuevo, pondrás en dicho renglón un 0 como:
+donde la marca es la marca o puntación del usuario
+en la pregunta. Como empiezas un
+archivo nuevo, pondrás en dicho renglón un 0 así:
 
 \---0:
 
@@ -19,9 +20,9 @@ a b c \{d\} e
 
 
 lo que al acabar de escribir el archivo saldrá así:
-a b {c} d
+a b {d} d e
 
-con la solución "c".
+con una solución de "c".
 luego sigue con la pregunta siguiente, empezar con el:
 
 \---0:
@@ -33,7 +34,7 @@ a b \{c\} d
 \---0:
 1 2 3 \{4\}
 
-al haber entrado la última, cierre la lista con un
+al final de la última pregunta, cierre la lista con un
 \---fin
 así:
 
@@ -43,9 +44,9 @@ a b \{c\} d
 1 2 3 \{4\}
 \---fin
 
-para ver como sale el ejemplo, puedes:
-a - escribir "" en el cuadrado de entrada en el inicio de
-ésta página y luego ir al enlace "seguir" abajo
+para ver como sale el ejemplo, puede:
+a - escribir "huecos" en el cuadrado de entrada al inicio de
+esta página y luego ir al enlace "seguir" abajo
 
 o,
 
@@ -55,7 +56,7 @@ archivos escoge "ejemplo_del_tutorial.rlh"
 o,
 
 c - en vez del archivo del alternativa anterior,
-haz tu propio archivo de preguntas en el formato
+pruebe su propio archivo de preguntas en el formato
 que se acabo de enseñar
 
 o hacer todas las alternativas a la vez etc..
@@ -63,20 +64,31 @@ o hacer todas las alternativas a la vez etc..
 a b c {d}
 ---0:
 después de jugar a un ejercicio, al terminar, para guardar
-tu calificación nueva, ir al enlace "guardar" arriba y
+su calificación nueva, ir al enlace "guardar" arriba y
 si quieres sobrescribe el archivo de preguntas actual. eso
-actualiza la calificación.
+actualizará las marcas a la calificación.
 
-para ver más información sobre el formato '.rlh' del archivo
-de preguntas / ejercicio, como cómo poner los simbolitos
-\{, \} en un ejercicio o un renglón como este:
+nota:  para incluir los simbolitos que tienen significado
+	especial para el programa, son el \{, \}, y renglones
+	de la forma:
 
 \---fin
 
-sin que ellos toman su significado único como se explicó
-en el tutorial, ud puede leer "formato_rlh.md"
-[18-1-20] nota: todavía falta dicho documento
+o
 
-para salir, ve al enlace "salir" que se encuentra más
+\---0.123:
+
+	donde la "0.123" es una marca cualquiera, entra justo
+	al frente un '\\' sin dejar espacios en medio, así:
+
+\\\{
+
+\\\}
+
+\\\---fin
+
+\\---0.123:
+
+para salir, ir al enlace "salir" que se encuentra más
 arriba.
 ---fin

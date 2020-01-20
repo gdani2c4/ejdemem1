@@ -145,7 +145,7 @@ function n0_href( preg_v ) {
 	let rstdo = { rlh_dat: "" };
 	rlh_gen( preg_v, rstdo );
 	// utf-16 a utf-8 hexadécimo binario de formato url-datos
-	rlh_dat = rlh_dat.replace( /.|\n/g, function ( xx ) {
+	rstdo.rlh_dat = rstdo.rlh_dat.replace( /.|\n/g, function ( xx ) {
     xx = parseInt( xx.charCodeAt(), 10 );
     if( xx < 0x80 ) return "%" + xx.toString(16).
 		padStart(2,0);
@@ -157,7 +157,7 @@ function n0_href( preg_v ) {
     else { console.log("carácter desconocido"); return 1; }
 	} );
 	document.querySelector("#n0").setAttribute("href",
-		"data:text/plain;charset=UTF-8," + rlh_dat);
+		"data:text/plain;charset=UTF-8," + rstdo.rlh_dat);
 }
 function err( cda ) {
 	document.querySelector( "#err" ).innerHTML = cda;
