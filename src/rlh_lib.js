@@ -75,6 +75,7 @@ function rlh_gen( preg_v, rstdo )
 {
 	let xx = 0;
 	for( preg_ii of preg_v ) {
+		xx = 0;
 		rstdo.rlh_dat += ficha0 + preg_ii.marca + ":\n";
 		for( cda_jj of preg_ii.preg_sin_elim_esc ) {
 			if( cda_jj == undefined ) rstdo.rlh_dat +=
