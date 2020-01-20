@@ -45,7 +45,12 @@ function as_preg_sg( rlh_dat, preg_v, marca ) {
 		}
 		dlmt.ultimo = 1;
 	}
-	rstdo = {preg: [], slcn: [] };
+	rstdo = {
+		preg: [],
+		slcn: [],
+		preg_sin_elim_esc: [],
+		slcn_sin_elim_esc: []
+	}
 	if( as_ctdo( rlh_dat.slice( 0, dlmt.index ),
 		rstdo )  ) return 1;
 	preg_v.push( {...rstdo, marca: marca } );
