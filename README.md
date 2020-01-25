@@ -1,3 +1,8 @@
+1. indicaciónes en español
+2. instructions in English
+
+1. indicaciones en español
+---
 # ejercicio de memoria 1: rellenar los huecos #
 
 ## proceso del ejercicio ##
@@ -10,6 +15,9 @@
     - las soluciones - cadenas de caracteres
       (como palabras) que faltan del texto
     - la marca del usuario hasta ese momento
+    - el formato de archivo es .rlh un formato
+      sencillo, siglas de "rellenar los huecos" descrito
+      en la documentación.
 3. se imprime a la página web la primera pregunta
    que escoge el programa. Escoge la pregunta
    con el fin de que el usuario recuerde pronto 
@@ -20,22 +28,19 @@
    pregunta siguiente.
 
 ## instalación ##
-- No más que copiar los archivos -
+- Al tener el directorio raíz del programa en
+  donde lo puede acceder con un navegador web
+  actualizado [20-01-20] abrir el "index.html"
+  y se cargará como una página web local
+  sin conexión a la red.
 
-    - index.html
-    - ejdemem1.js
-    - ejdemem1_lib.js
-    - ini.js
+- Otra alternativa: descargar
+  'v_un_archivo_solo/ejdemem1.hml' y abrirlo en un
+  navegador actualizado.
 
-    a un directorio y abrir 'index.html'
-    en un navegador web, el cual la interpreta como
-    página web local (no en línea).
+- la página web pide un archivo. Se puede meter el
+  'tutorial.rlh' o 'ejemplo_del_tutorial.rlh' si aún
+  no tiene su propio archivo de preguntas.
 
-    la página web pide un archivo. Se puede meter el
-    'ej_ejemplo_del_tutorial_usr1.json' que es el ejemplo
-    construido en el tutorial que también se puede meter
-    en la página del 'index.html'.
-
-    nota: preparo ahora un formato de archivo de preguntas
-    muy sencillo sin JSON, espero terminarlo hasta el 15-01-20
-    [13-01-20 10:50]
+2. guide in English
+---

@@ -11,13 +11,8 @@ function impr_preg( preg_x, preg_v ) {
 	document.querySelector( "#n3" ).
 		onclick = al_rsp( preg_x, preg_v );
 }
-function escoger_preg( preg_v ) {
-	let pregv_marca = [];
-	for( ii of preg_v ) pregv_marca.push( ii.marca );
-	return pregv_marca.indexOf(  Math.min(
-		...pregv_marca )  );
-}
 function preg_html( preg_con_huecos ) {
+	let re0 = new RegExp( ">|<|"|{ |n|	", "g" );
 	let xx = 0;
 	let rstdo = "";
 	let ahtml = {
@@ -31,14 +26,22 @@ function preg_html( preg_con_huecos ) {
 	for( ii of preg_con_huecos ) {
 		if( ii == undefined ) rstdo +=
 			`<input id = "e${xx++}">`;
-		else rstdo += ii.replace(
-				/>|<|"|&|\n| /g,
+		else {
+			rstdo += ii.replace(
+				re0,
+//				cambio al sintaxis "new RegExp"
+//				por un limite de un analizador sintactico
+//				de traducción
+//				/>|<|"|&|\n| /g,
 				function(cc) { return ahtml[cc]; } );
 	}
 	return rstdo;
 }
-function marca_preg_sum( val, delta ) {
-		return (1 - theta) * val + theta * delta;
+function escoger_preg( preg_v ) {
+	let pregv_marca = [];
+	for( ii of preg_v ) pregv_marca.push( ii.marca );
+	return pregv_marca.indexOf(  Math.min(
+		...pregv_marca )  );
 }
 /* marca - califica la respuesta "rsp" dado la solución
    "slcn" y el texto de la pregunta
@@ -49,6 +52,9 @@ function marca( rsp, slcn, texto ) {
 		if( slcn[ ii ] == rsp[ ii ] )
 			marca_x++;
 	return marca_x / slcn.length;
+}
+function marca_preg_sum( val, delta ) {
+		return (1 - theta) * val + theta * delta;
 }
 function n0_href( preg_v ) {
 	let rstdo = { rlh_dat: "" };

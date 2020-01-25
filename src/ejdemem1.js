@@ -27,24 +27,20 @@ function main_bucle0() {
 //function leer_a_preg( preg_v, archivo_x ) {
 function leer_a_preg( archivo_x )
 {
-	/* el formato de preg_datos[ii] se convierte en
-	   preg[ii]
+	/*
+	 preg_v.preg	cadena partida (un arreglo) por valores
+	 	"undefined" donde se meten las soluciones / huecos
 
-	 preg[ii].html	la pregunta en forma html -
-	   ...texto... <input id="e0"> ... texto ...
-	   <input id=`e${n}`> ... texto ... 
-	   los `e${j}` (j = 0,1,..n) son para las respuestas
+	 preg_v.slcn	las soluciones, en el orden en el
+		que aparecen en la pregunta
 
-	 preg[ii].slcn	"slcn[jj]" es la solución a
- 	   respuesta "jj", que corresponde a id=`e${jj}`
-
-	 preg[ii].marca es la marca, igual como en
-	   "preg_dat"
+	 preg_v.preg_sin_elim_esc, preg_v.slcn_sin_elim_esc
+		las preguntas, soluciones sin reducir coincidencias
+		del carácter de escape '\'
 	 */
 	let preg_v = [];
 	let lector = new FileReader();
 	lector.onloadend = function() {
-//		preg_dat_as( preg_v, JSON.parse( lector.result ) );
 		as_rlh( lector.result, preg_v );
 		main_cont1( preg_v );
 	};

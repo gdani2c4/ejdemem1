@@ -41,7 +41,63 @@
 
 ### ejdemem_lib.js
 
-[la sección falta todavía]
+- Imprimir al pregunta
+
+    `impr_preg( preg_x, preg_v )`
+
+    imprime `preg_x`; entrada `e${jj}` corresponde a la
+    solución `preg_x.slcn[jj]` para cada solución.
+    lleva el argumento `preg_v` solo para pasarlo a
+    `al_rsp()`, que dispara al entrar el usuario su
+    respuesta a la pregunta.
+
+- convertir la pregunta en html
+
+    `preg_html( preg_con_huecos )`
+
+    utilizada en `impr_preg()`,
+    devuelve el html en una cadena, de una cadena
+    partida (lo que es un arreglo) `preg_v.preg`
+
+- Escoger pregunta
+
+    `escoger_preg( preg_v )`
+
+    escoger la pregunta siguiente de `preg_v`,
+    el algoritmo actual es lo mas sencillo: la
+    pregunta la que el usuario tiene la peor marca
+
+- califica la respuesta actual del usuario
+
+    `marca( rsp, slcn, texto )`
+
+    dado la respuesta actual, la solución y el texto
+    original. El algoritmo actual es el más sencillo,
+    que la repuesta debe coincidir bit a bit a la
+    solución. Un algoritmo más complejo puede hasta
+    llevar a cuenta la semantica del texto.
+
+- sumación de la marca a la historia
+
+    `marca_preg_sum( val, delta )`
+
+    incluir en la sumación de las marcas anteriores
+    la marca de la respuesta actual. En esta versión
+    es un promedio sencillo que forma una serie
+    geometrica.
+
+- generar el .rlh con la marca actualizada
+
+    `n0_href( preg_v )`
+
+    después de cada respuesta, las notas actualizadas
+    se incluyen en un archivo .rlh nuevo, en la forma
+    de un url de datos en un elemento "a" (anclaje)
+    que el usuario puede descargar al ir al enlace
+    "guardar". Para evitar conflitos de sintaxis con
+    el formato de url de datos, es almacenado en forma
+    hexadécimo. También para mejorar compatibilidad con
+    editores de texto, es convertido de UTF-16 a UTF-8.
 
 ## analiza de sintaxis
 
