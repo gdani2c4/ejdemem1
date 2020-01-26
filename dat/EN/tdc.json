@@ -1,0 +1,309 @@
+{
+    "str":
+{
+        " the current weight of the response":
+" the current weight of the response",
+
+        " entra al calcular la calificación del usuario a\n   la qstnunta que acaba de contestar\n ":
+"enters when to calculate the points of the user to\n    the question that was now answered\n ",
+
+        "<div id = nav ><a href = \"#\" id = n2 >":
+"",
+
+        "exit</a></div></br></br>":
+"exit</a></div></br></br>",
+
+        "<div id = cnt ><input id = e0 type = file >":
+"",
+
+        "</div>":
+"",
+
+        "</br></br><div id = err ></div>":
+"",
+
+        "#n2":
+"",
+
+
+        "e0":
+"",
+
+        "\t\tqstn_v = [];":
+"",
+
+        "\t\tread_a_qstn( qstn_v, e0.files[0] );":
+"",
+
+        "function read_a_qstn( qstn_v, file_x ) {":
+"",
+
+        "\n\t qstn_v.qstn\tcadena partida (un arreglo) por valores\n\t \t\"undefined\" donde se meten las soluciones / holes\n\n\t qstn_v.sln\tlas soluciones, en el orden en el\n\t\tque aparecen en la qstnunta\n\n\t qstn_v.qstn_no_elim_esc, qstn_v.sln_no_elim_esc\n\t\tlas qstnuntas, soluciones sin reducir coincidencias\n\t\tdel carácter de escape '\\'\n\t ":
+"\n\t qstn_v.qstn\tdivided string (an array) of values\n\t \t\"undefined\" where the solutions / holes\n\n\t qstn_v.sln\tthe solutions, in the order that\n\tthey appearin the question\n\n\t qstn_v.qstn_no_elim_esc, qstn_v.sln_no_elim_esc\n\t\tthe questions, solutions without to reduce matches\n\t\tof the escape character '\\'\n\t ",
+
+        " después de construir \"qstn_v\", prepara la salida\n   de la qstnunta siguiente al usuario ":
+" after to construc \"qstn_v\", prepare the output\n   of the next question to the user ",
+
+        "#n0":
+"",
+
+        "beforebegin":
+"",
+
+        "<a href = \"#\" id = n0 download>guardar</a>":
+"<a href = \"#\" id = n0 download>save</a>",
+
+        "&nbsp;":
+"",
+
+        "<a href = \"#\" id = n1>al inicio</a>":
+"<a href = \"#\" id = n1>to the start</a>",
+
+        "#n1":
+"",
+
+        "#e${ii}":
+"",
+
+        "\tconsole.log( qstn_x.points);":
+"",
+
+        " evento mandar respuesta --> al_rsp: actualizar points -->\n\tprintimir qstnunta de nuevo\n ":
+" event send response --> al_rsp: update the points -->\n\tprint question from new",
+
+        "#cnt":
+"",
+
+        "<a href = \"#\" id=\"n3\">seguir</a>":
+"<a href = \"#\" id=\"n3\">continue</a>",
+
+        "#e0":
+"",
+
+        " pasa también \"qstn_v\" entero para llevarlo\n\t\ta otras funciones mas adelante: ":
+" pass also \"qstn_v\" complete to take it\n\tto other functions later: ",
+
+        "#n3":
+"",
+
+        ">|<|\\\"|\\n| ":
+"",
+
+        "g":
+"",
+
+        "&":
+"",
+
+        "&amp;":
+"",
+
+        "<":
+"",
+
+        "&lt;":
+"",
+
+        ">":
+"",
+
+        "&gt;":
+"",
+
+        "\\\"":
+"",
+
+        "&quot;":
+"",
+
+        "\\n":
+"",
+
+        "<br>":
+"",
+
+        " ":
+"",
+
+        "<input id = \"e${xx++}\">":
+"",
+
+        "\t\t\t\tcambio al sintaxis \"new RegExp\"":
+"\t\t\t\tchange of syntax \"new RegExp\"",
+
+        "\t\t\t\tpor un limite de un analizador sintactico":
+"\t\t\t\tbecause of a limit of the parser",
+
+        "\t\t\t\tde traducción":
+"\t\t\t\tof the translation",
+
+        "\t\t\t\t/>|<|\"|&|\\n| /g,":
+"",
+
+        " points - califica la respuesta \"rsp\" dado la solución\n   \"sln\" y el texto de la qstnunta\n ":
+" points - gives points to the responce \"rsp\" given the solution\n   \"sln\" and the text of the question\n ",
+
+        " utf-16 to utf-8 hexadecimal of the data-url":
+" utf-16 to utf-8 hexadecimal of the data-url",
+
+        "%":
+"",
+
+        "unrecognized character":
+"unrecognized character",
+
+        "href":
+"",
+
+        "data:text/plain;charset=UTF-8,":
+"",
+
+        "#err":
+"",
+
+        "---":
+"",
+
+        "([^\\n\\t ][^\\n]*):":
+"",
+
+        "\n\t \"rslt\"\t\"resultado\". Funciones \"as_*\"  analizadores\n\t sintacticos devuelven un numero != 0 al llegar\n\t a una exención. El resultado del analizador\n\t se guarda en la estructura \"rslt\" entregado\n\t a la función.":
+"\n\t \"rslt\"\t\"result\". Functions \"as_*\" analyzers\n\t of syntax return a number != 0 to arrive\n\t at an error. The result of the analyzer\n\t is saved in the structure \"rslt\"\t given\n\t to the function.",
+
+        "\n\t el exreg del primer pointsdor del file -\n\t llevará adelante solo espacios en blanco\n\t \"[\\t\\n ]\", y termina en un '\\n'. ":
+"\n\t the regex of the first marker of the file -\n\t will take in front only empty spaces\n\t \"[\\t\\n ]\", and terminate in a '\\n'. ",
+
+        "^[\\n\\t ]*":
+"",
+
+        "the token that delimits the questions ":
+"the token that delimits the questions ",
+
+        "file not encountered.":
+"file not encountered.",
+
+        " case no more delimiters (no questions remain)":
+" case no more delimiters (no questions remain)",
+
+        " busca el delimitador final del formato \"rlh\"":
+" search the final delimiter fo the \"rlh\" format",
+
+        "[^\\n\\t ]{1,}[\\n\\t ]*$":
+"",
+
+        "end token not encountered ":
+"end token not encountered ",
+
+        "of the list of questions":
+"of the list of questions",
+
+        "\\\\":
+"",
+
+        "{":
+"",
+
+        "        caso               \tsignifica\n\n\t índice devuelto < |cntnt_dat|\tínd. de cdt\n\n\t    \"     \"     ==      \" - 1\tcdt termina\n\t                             \tla cadena\n\n\t    \"     \"     ==      \"   \tfalta el cdt\n\t ":
+"        case               \tsignifies\n\n\t index returned < |cntnt_dat|\tind. of cdt\n\n\t     \"      \"    ==      \" - 1\tcdt ends\n\t                                \tthe string\n\n\t    \"    \"     ==       \"   \tmissing the string\n\t",
+
+        "'{' sin terminar":
+"",
+
+        " save the question until the '{'":
+" save the question until the '{'",
+
+        " case arrived at the end of the string of content":
+" case arrived at the end of the string of content",
+
+        " case expect a solution":
+" case expect a solution",
+
+        "}":
+"",
+
+        " save the solution between '{', '}'":
+" save the solution between '{', '}'",
+
+        " mark the hole to be solved":
+" mark the hole to be solved",
+
+        " readto_tok\tanalizador sintáctico de cadenas":
+" read_ht\t parser of strings",
+
+        " con carácter de escape \"cde\" y carácter de":
+" with character of escape \"cde\" and character of",
+
+        " terminación \"cdt\". Actualizar el índice \"rslt.nn\"":
+" termination \"cdt\". Update teh index \"rslt.nn\"",
+
+        " in that the function terminated.":
+" in that the function terminated.",
+
+        " PREVENT PARSE IN PHASE GENERATE .RLH":
+" PREVENT PARSE IN PHASE GENERATE .RLH",
+
+        " case: escape character":
+" case: escape character",
+
+        " case: token of end":
+" case: token of end",
+
+        " case: not syntactic character":
+" case: not syntactic character",
+
+        " --- SAVE A COPY BUT DO NOT REMOVE ESC. CHAR.":
+" --- SAVE A COPY BUT DO NOT REMOVE ESC. CHAR.",
+
+        "format of the marker of question 1":
+"format of the marker of question 1",
+
+        ",":
+"",
+
+        ".":
+"",
+
+        ":\\n":
+"",
+
+        "---end":
+"---end"
+    },
+
+    "abrv":
+{
+        "rslt":
+"rslt",
+
+"loop": "loop",
+
+"qstn": "qstn",
+
+"read": "read",
+
+"file": "file",
+
+"reader": "reader",
+
+"points": "points",
+
+"print": "print",
+
+"holes": "holes",
+
+"choose": "choose",
+
+"sln": "sln",
+
+"_suc": "_suc",
+
+"no_": "no_",
+
+"cntnt": "cntnt",
+
+"str": "str",
+
+"to_tok": "to_tok"
+
+    }
+}

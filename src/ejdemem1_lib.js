@@ -12,7 +12,7 @@ function impr_preg( preg_x, preg_v ) {
 		onclick = al_rsp( preg_x, preg_v );
 }
 function preg_html( preg_con_huecos ) {
-	let re0 = new RegExp( ">|<|"|{ |n|	", "g" );
+	let re0 = new RegExp( ">|<|\"|\n| ", "g" );
 	let xx = 0;
 	let rstdo = "";
 	let ahtml = {
@@ -26,7 +26,7 @@ function preg_html( preg_con_huecos ) {
 	for( ii of preg_con_huecos ) {
 		if( ii == undefined ) rstdo +=
 			`<input id = "e${xx++}">`;
-		else {
+		else
 			rstdo += ii.replace(
 				re0,
 //				cambio al sintaxis "new RegExp"
