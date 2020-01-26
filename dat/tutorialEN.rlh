@@ -1,0 +1,86 @@
+---0:
+exercise of memory 1: fill the {holes}
+every question starts with one line in the form:
+
+\---[points]:
+
+where the points is the points of the user in
+the question. At the effect of to start a new file,
+the given line can be put as such:
+
+\---0:
+
+but it could be any value between 0 and 1 inclusive
+
+afterwards the user writes the question itself, with
+the holes between \{, \} as such:
+
+\---0:
+a b \{c\} d
+
+that when the file is written it will go like this:
+a b {c} d
+
+with a solution "c".
+afterwards continue to the next question, start with:
+
+\---0:
+and afterwards the question:
+
+\---0:
+a b \{c\} d
+\---0:
+1 2 3 \{4\}
+
+at the end of the last question close the list with a
+
+\---end
+as such:
+
+
+\---0:
+a b \{c\} d
+\---0:
+1 2 3 \{4\}
+\---fin
+
+to see how the example comes out, the reader can:
+a - write "holes" in the square of input at the start of this page and then go to the link "continue" below
+
+or,
+
+b - go to the link above "to the start"	and in the selection of files choose "example_of_the_tutorial.rlh"
+
+or,
+
+c - in the place of the file of the last alternative, the reader can try their own file of questions in the format that has been explained
+
+or do all the methods at the same time etc...
+---0:
+a b {c} d
+---0:
+after to play an exercise, at termination, to save
+the new points, go to the link "save" above and
+if desired, overwrite the current questions arvchive. This will update the points.
+
+note: to include symbols that have special significance to the progra, they are \{, \} and lines of the form:
+
+\---end
+
+or
+
+\---0.123:
+
+where the "0.123" is any points, enter immediately in the front a '\\' without to leave any spaces in between, as such:
+
+\\\{
+
+\\\}
+
+\\---end
+
+\\---0.123:
+
+to exit, go to the link "exit" that is found above.
+---fin
+

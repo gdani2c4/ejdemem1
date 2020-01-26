@@ -76,6 +76,3 @@
 - the web page prompts an archive. User may enter the
   'tutorialEN.rlh' or 'example_of_the_tutorial.rlh' if
   still the user doesn't have their own archive of questions.
-- la página web pide un archivo. Se puede meter el
-  'tutorial.rlh' o 'ejemplo_del_tutorial.rlh' si aún
-  no tiene su propio archivo de preguntas.

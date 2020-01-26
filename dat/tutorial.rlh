@@ -16,11 +16,11 @@ luego escribes la pregunta misma, con los huecos
 entre corchetes \{, \}, como así:
 
 \---0:
-a b c \{d\} e
+a b \{c\} d
 
 
 lo que al acabar de escribir el archivo saldrá así:
-a b {d} d e
+a b {c} d
 
 con una solución de "c".
 luego sigue con la pregunta siguiente, empezar con el:
@@ -61,7 +61,7 @@ que se acabo de enseñar
 
 o hacer todas las alternativas a la vez etc..
 ---0:
-a b c {d}
+a b {c} d
 ---0:
 después de jugar a un ejercicio, al terminar, para guardar
 su calificación nueva, ir al enlace "guardar" arriba y
