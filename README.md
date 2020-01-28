@@ -1,78 +1,92 @@
-[indicaciónes en español](#ejercicio-de-memoria-1-rellenar-los-huecos)
+[indicaciónes en español](#ejercicio-de-memoria-1-rellenar-los-agujeros)
 
-[instructions in English](#exercise-of-memory-1-fill-the-holes)
-
----
-# ejercicio de memoria 1: rellenar los huecos #
-
-## proceso del ejercicio ##
-1. el usuario abre la página, almacenada en su computadora,
-   con un navegador web actualizado. (para saber
-   más mira las indicaciones de instalación)
-2. el usuario elige un archivo de datos
-   el archivo de datos incluye
-    - el texto o pregunta con los huecos
-    - las soluciones - cadenas de caracteres
-      (como palabras) que faltan del texto
-    - la marca del usuario hasta ese momento
-    - el formato de archivo es .rlh un formato
-      sencillo, siglas de "rellenar los huecos" descrito
-      en la documentación.
-3. se imprime a la página web la primera pregunta
-   que escoge el programa. Escoge la pregunta
-   con el fin de que el usuario recuerde pronto 
-   cómo resolver todas las preguntas del ejercicio.
-   El algoritmo de la versión inicial es un
-   sencillo promedio con pesos.
-4. el usuario rellena los huecos y ya pasa a la
-   pregunta siguiente.
-
-## instalación ##
-- Al tener el directorio raíz del programa en
-  donde lo puede acceder con un navegador web
-  actualizado [20-01-20] abrir el "index.html"
-  y se cargará como una página web local
-  sin conexión a la red.
-
-- Otra alternativa: descargar
-  'v_un_archivo_solo/ejdemem1.hml' y abrirlo en un
-  navegador actualizado.
-
-- la página web pide un archivo. Se puede meter el
-  'tutorial.rlh' o 'ejemplo_del_tutorial.rlh' si aún
-  no tiene su propio archivo de preguntas.
+[instructions in English](#exercise-of-memory-1-fill-the-gaps)
 
 ---
-# exercise of memory 1: fill the holes
+# ejercicio de memoria 1: rellenar los agujeros #
 
-## procedure of the exercise ##
-1. the user opens the page stored in their computer,
-   with a navigator of the web that is updated. (to know
-   more, see the instructions of installation)
-2. the user chooses a file of data, that file includes
-    - the text or question with the empty slots
-    - the solutions - strings of characters
-      (such as questions) that are missing in the text
-    - the points of the user until this moment
-    - the format of the file is .rlh, a format that is 
-      simple, for the purpose of this exercise, described
-      in the documentation.
-3. to the web page the first question is printed
-   that the program chooses. The question is chosen
-   with the purpose that the user remembers quickly
-   how to resolve all the questions of the exercise.
-   The algorithm of the initial version is a simple
-   average with weights.
-4. the user fills the empty slots and continues to the
-   next question.
+herramienta muy sencilla para llevar ejercicios de
+tipo rellenar los agujeros a la computadora. La
+frase que el usuario recuerde el peor es la siguiente
+que el programa le da para rellenar.
 
-## instalation ##
-- While the root directory of the program in a place
-  where it can be accessed with a web navegator that
-  is updated [20-01-20] open the "indexEN.html"
-  and it is loaded as a local web page without
-  connection to the network.
+Encontré programas mucho más complejos como
+[JClic](https://github.com/projectestac/jclic) pero
+quería construir uno que es:
 
-- the web page prompts an archive. User may enter the
-  'tutorialEN.rlh' or 'example_of_the_tutorial.rlh' if
-  still the user doesn't have their own archive of questions.
+1. muy sencillo
+
+    - solo mete los ejercicios en un archivo de un
+      formato limpio y cuyo uso es fácil
+
+    - no hace falta instalación para el uso
+
+2. tiene un algoritmo que escoge qué dar al
+   usuario, y el cual se puede cambiar facilmente
+   desde los archivos de programación.
+   (el uso del programa no exige ningún
+   conocimiento de programación. Esta
+   caracteristica es para algunos usuarios que
+   también les interesa experimentar con los
+   algoritmos)
+
+## uso
+
+1. clone del repositorio, abrir *index.html*
+
+    - otra alternativa, descargar solo un archivo -
+      *v_un_archivo_solo/ejdemem1.html* y abrirlo
+
+2. escoger un archivo de ejercicios en la página
+   que sale
+
+    - ejemplos están incluidos en el directorio *dat/*
+
+3. hacer el ejercicio
+
+4. ir al enlace "guardar" los resultados,
+   y sobreescribe el archivo de ejercicios.
+
+    - eso guarda la apuntación nueva
+
+---
+# exercise of memory 1: fill the gaps
+
+a tool that is very simple to take exercises of
+the type fill-the-missing-text to the computer. The
+phrase that the user remembers the worse is the
+next that the program gives the user to fill.
+
+I encountered programs that are much more complex
+such as [JClic](https://github.com/projectestac/jclic)
+but I wanted to program one that is:
+
+1. very simple
+
+    - simply insert the exercises in a file of a
+      clean format whose use is easy
+
+    - installation not necessary for use
+
+2. has an algorithm that chooses what to give
+   to the user to solve, and which can be
+     changed easily in the program source files.
+   (The use of the program does not demand any
+   knowledge of programming. This feature is only
+   for the users that also are interested to
+   experiment with algorithms)
+
+## use
+
+1. clone from the repository; open *indexEN.html*
+
+2. choose a exercise file in the page that comes
+
+    - examples are included in the directory *dat/*
+
+3. do the exercise
+
+4. go to the link "save" the results, and overwrite
+   the file of the exercise
+
+    - this will save the new points of the user
