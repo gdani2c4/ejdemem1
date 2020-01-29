@@ -39,12 +39,12 @@ function read_a_qstn( file_x )
 		of the escape character '\'
 	 */
 	let qstn_v = [];
-	let lector = new FileReader();
-	lector.onloadend = function() {
-		as_rlh( lector.result, qstn_v );
+	let reader = new FileReader();
+	reader.onloadend = function() {
+		as_rlh( reader.result, qstn_v );
 		main_cont1( qstn_v );
 	};
-	if( file_x ) lector.readAsText( file_x );
+	if( file_x ) reader.readAsText( file_x );
 }
 /* after to construc "qstn_v", prepare the output
    of the next question to the user */
@@ -58,18 +58,19 @@ function main_cont1( qstn_v ) {
 		"&nbsp;".repeat(4) );
 	document.querySelector( "#n1" ).onclick = main_loop0;
 	}
-	print_qstn(  qstn_v[ choose_qstn( qstn_v ) ], qstn_v  );
+	prt_qstn(  qstn_v[ choose_qstn( qstn_v ) ], qstn_v  );
 	n0_href( qstn_v );
 }
 function al_rsp( qstn_x, qstn_v ) { return function() {
+	let points_x = 0;
 	qstn_x.rsp = new Array;
 	for( ii in qstn_x.sln )
 		qstn_x.rsp[ii] = document.querySelector(
 			`#e${ii}`).value;
-	qstn_x.points = points_qstn_sum( qstn_x.points,
-		points( qstn_x.rsp, qstn_x.sln,
-			qstn_x.qstn )
-	);
-//	console.log( qstn_x.points);
-	main_cont1( qstn_v );
+	points_x = points( qstn_x.rsp, qstn_x.sln,
+		qstn_x.qstn );
+	qstn_x.points = qstn_points_s( qstn_x.points, points_x );
+	if( points_x < 1 )
+		prt_incorr( qstn_x, points_x, qstn_v );
+	else main_cont1( qstn_v );
 }; }

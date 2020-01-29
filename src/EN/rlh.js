@@ -51,7 +51,7 @@ function as_qstn_suc( rlh_dat, qstn_v, points ) {
 		qstn_no_elim_esc: [],
 		sln_no_elim_esc: []
 	}
-	if( as_cntnt( rlh_dat.slice( 0, dlmt.index ),
+	if( as_ctnt( rlh_dat.slice( 0, dlmt.index ),
 		rslt )  ) return 1;
 	qstn_v.push( {...rslt, points: points } );
 	if( dlmt.ultimo ) return 0;

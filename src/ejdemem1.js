@@ -39,12 +39,12 @@ function leer_a_preg( archivo_x )
 		del carácter de escape '\'
 	 */
 	let preg_v = [];
-	let lector = new FileReader();
-	lector.onloadend = function() {
-		as_rlh( lector.result, preg_v );
+	let ach_lector = new FileReader();
+	ach_lector.onloadend = function() {
+		as_rlh( ach_lector.result, preg_v );
 		main_cont1( preg_v );
 	};
-	if( archivo_x ) lector.readAsText( archivo_x );
+	if( archivo_x ) ach_lector.readAsText( archivo_x );
 }
 /* después de construir "preg_v", prepara la salida
    de la pregunta siguiente al usuario */
@@ -62,14 +62,15 @@ function main_cont1( preg_v ) {
 	n0_href( preg_v );
 }
 function al_rsp( preg_x, preg_v ) { return function() {
+	let marca_x = 0;
 	preg_x.rsp = new Array;
 	for( ii in preg_x.slcn )
 		preg_x.rsp[ii] = document.querySelector(
 			`#e${ii}`).value;
-	preg_x.marca = marca_preg_sum( preg_x.marca,
-		marca( preg_x.rsp, preg_x.slcn,
-			preg_x.preg )
-	);
-//	console.log( preg_x.marca);
-	main_cont1( preg_v );
+	marca_x = marca( preg_x.rsp, preg_x.slcn,
+		preg_x.preg );
+	preg_x.marca = preg_marca_s( preg_x.marca, marca_x );
+	if( marca_x < 1 )
+		impr_incorr( preg_x, marca_x, preg_v );
+	else main_cont1( preg_v );
 }; }

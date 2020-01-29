@@ -25,6 +25,8 @@
         "#n2":
 "",
 
+        "fin":
+"",
 
         "e0":
 "",
@@ -65,17 +67,15 @@
         "#e${ii}":
 "",
 
-        "\tconsole.log( preg_x.marca);":
-"",
-
         " evento mandar respuesta --> al_rsp: actualizar marca -->\n\timprimir pregunta de nuevo\n ":
 " event send response --> al_rsp: update the points -->\n\tprint question from new",
 
         "#cnt":
 "",
 
-        "<a href = \"#\" id=\"n3\">seguir</a>":
-"<a href = \"#\" id=\"n3\">continue</a>",
+        "<a href = # id = n3>seguir</a>":
+
+       "<a href = # id = n3>continue</a>",
 
         "#e0":
 "",
@@ -85,6 +85,36 @@
 
         "#n3":
 "",
+
+        "beforeend":
+"",
+
+        "<p>marca: ${Math.floor(marca_x * 100)}%</p>":
+        "<p>score: ${Math.floor(marca_x * 100)}%</p>",
+
+        "<a href = # id = n4>a la solución</a>":
+        "<a href = # id = n4>to the solution</a>",
+
+        "input":
+"",
+
+        "readonly":
+"",
+
+        "intentarlo de nuevo":
+"redo",
+
+        "#n4":
+"",
+
+        "\"${ii}\", ":
+"",
+
+        "<p>${slcn}</p>":
+"",
+
+        " si se enseña la solución, agrega otro 0 puntos":
+" if the solution is shown, add another 0 points",
 
         ">|<|\\\"|\\n| ":
 "",
@@ -207,7 +237,7 @@
 "        case               \tsignifies\n\n\t index returned < |ctdo_dat|\tind. of cdt\n\n\t     \"      \"    ==      \" - 1\tcdt ends\n\t                                \tthe string\n\n\t    \"    \"     ==       \"   \tmissing the string\n\t",
 
         "'{' sin terminar":
-"",
+"'{' not completed",
 
         " guarda la pregunta hasta el '{'":
 " save the question until the '{'",
@@ -275,35 +305,53 @@
         "rstdo":
 "rslt",
 
-"bucle": "loop",
+        "bucle":
+"loop",
 
-"preg": "qstn",
+        "preg":
+"qstn",
 
-"leer": "read",
+        "leer_":
+"read_",
 
-"archivo": "file",
+        "archivo":
+"file",
 
-"lector0": "reader",
+        "ach_lector":
+"reader",
 
-"marca": "points",
+        "marca":
+"points",
 
-"impr": "print",
+        "impr_":
+"prt_",
 
-"huecos": "holes",
+        "huecos":
+"holes",
 
-"escoger": "choose",
+        "escoger":
+"choose",
 
-"slcn": "sln",
+        "slcn":
+"sln",
 
-"_sg": "_suc",
+        "_sg":
+"_suc",
 
-"sin_": "no_",
+        "sin_":
+"no_",
 
-"ctdo": "cntnt",
+        "ctdo":
+"ctnt",
 
-"cda": "str",
+        "cda":
+"str",
 
-"_hf": "to_tok"
+        "_hf":
+"to_tok",
+
+        "rll":
+"cllb"
 
     }
 }
