@@ -49,6 +49,58 @@ quería construir uno que es:
 
     - eso guarda la apuntación nueva
 
+### archivo de ejercicios
+
+para escribir un archivo de ejercicios
+(se abre este archivo en el paso 2 de [uso](#uso) )
+
+- empezar cada ejercicio en el renglón:
+
+    `---0:`
+
+    (el 0 será la apuntación inicial en el ejercicio,
+    y se actualizará al guardar los resultados del
+    ejercicio en paso 4 de [uso](#uso) )
+
+- terminar el archivo de ejercicios en el renglón:
+
+    `---fin`
+
+- las soluciones van entre corchetes `{` y `}`
+
+    ejemplo:
+
+```
+---0:
+ciento {volando} y no uno en {la mano}
+---0:
+el uso de {alheña} (de la palabara semítica "jina")
+es en su origen pintar el piel en ceremonias 
+en el {mediooriente} y {la India}.
+---fin
+```
+
+- para incluir los marcadores especiales
+  del archivo que se acaba de mencionar (son
+  `{`, `}`, y los renglones que demarcan las
+  ejercicios) simplemente marca un `\`
+  al frente sin espacios así: `\{`, `\}`,
+
+    `\---0`,
+
+    `\---fin`
+
+    ejemplo:
+
+```
+---0:
+los ejercicios de {rellenar los agujeros} empiezan
+en el renglón:
+\---0:
+y las soluciónes van entre \{ y \} así: \{solución\}
+---fin
+```
+
 ---
 # exercise of memory 1: fill the gaps
 
@@ -90,3 +142,53 @@ but I wanted to program one that is:
    the file of the exercise
 
     - this will save the new points of the user
+
+## exercise files
+
+to wrte a file of exercises
+(it is opened in phase 2 of [use](#use)
+
+- begin every exercise with the line:
+
+    `---0:`
+
+- end the file with the line:
+
+    `---end`
+
+- the solutions go between parenthesis \{ and  \}
+
+    example:
+
+```
+---0:
+100 {flying} and not 1 in {the hand}
+---0:
+the use of {henna} (from the semitic word "khina")
+is in its origin to paint the skin in ceremonies
+in the {middle east} and {India}
+---end
+```
+
+
+- to include the special markers
+  of the file that were mentioned now (they are
+  `{`, `}` and the lines that delimit the
+  exercises) simply enter a `\` at the front
+  without spaces: `\{`, `\}`,
+
+  `\---0:`,
+
+  `\---end`
+
+   example:
+
+```
+---0:
+the exercises of {fill the gaps} begin with
+the line:
+\---0:
+and the solutions go between `{` and `}` as such:
+\{solution\}
+---end
+```
