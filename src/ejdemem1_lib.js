@@ -15,7 +15,8 @@ function impr_incorr( preg_x, marca_x, preg_v ) {
 	let rll = main_cont1.bind( undefined, preg_v );
 	document.querySelector("#cnt").insertAdjacentHTML(
 		"beforeend",
-		`<p>marca: ${Math.floor(marca_x * 100)}%</p>` +
+		"<p>la respuesta coincide con la solución a " +
+			` ${Math.floor(marca_x * 100)}%</p>` +
 		"<a href = # id = n4>a la solución</a>" );
 	for( ii of document.querySelectorAll( "input" ) )
 		ii.setAttribute( "readonly", null );
