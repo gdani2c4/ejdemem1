@@ -1,14 +1,14 @@
-const theta = 1/4; // el peso de la respuesta actual
-/* entra al calcular la calificación del usuario a
-   la pregunta que acaba de contestar
+const theta = 1/4; // the current weight of the response
+/*enters when to calculate the points of the user to
+    the question that was now answered
  */
 function main0() {
-	main_bucle0();
+	main_loop0();
 }
-function main_bucle0() {
+function main_loop0() {
 	document.body.innerHTML =
 		'<div id = nav ><a href = "#" id = n2 >' +
-			'salir</a></div></br></br>' +
+			'exit</a></div></br></br>' +
 		'<div id = cnt ><input id = e0 type = file >' +
 			'</div>' +
 		'</br></br><div id = err ></div>';
@@ -19,58 +19,58 @@ function main_bucle0() {
 	e0 = document.getElementById("e0");
 	e0.focus();
 	e0.onchange = function() {
-//		preg_v = [];
-//		leer_a_preg( preg_v, e0.files[0] );
-		leer_a_preg( e0.files[0] );
+//		qstn_v = [];
+//		read_a_qstn( qstn_v, e0.files[0] );
+		read_a_qstn( e0.files[0] );
 	};
 }
-//function leer_a_preg( preg_v, archivo_x ) {
-function leer_a_preg( archivo_x )
+//function read_a_qstn( qstn_v, file_x ) {
+function read_a_qstn( file_x )
 {
 	/*
-	 preg_v.preg	cadena partida (un arreglo) por valores
-	 	"undefined" donde se meten las soluciones / huecos
+	 qstn_v.qstn	divided string (an array) of values
+	 	"undefined" where the solutions / holes
 
-	 preg_v.slcn	las soluciones, en el orden en el
-		que aparecen en la pregunta
+	 qstn_v.sln	the solutions, in the order that
+	they appearin the question
 
-	 preg_v.preg_sin_elim_esc, preg_v.slcn_sin_elim_esc
-		las preguntas, soluciones sin reducir coincidencias
-		del carácter de escape '\'
+	 qstn_v.qstn_no_elim_esc, qstn_v.sln_no_elim_esc
+		the questions, solutions without to reduce matches
+		of the escape character '\'
 	 */
-	let preg_v = [];
-	let ach_lector = new FileReader();
-	ach_lector.onloadend = function() {
-		as_rlh( ach_lector.result, preg_v );
-		main_cont1( preg_v );
+	let qstn_v = [];
+	let reader = new FileReader();
+	reader.onloadend = function() {
+		as_rlh( reader.result, qstn_v );
+		main_cont1( qstn_v );
 	};
-	if( archivo_x ) ach_lector.readAsText( archivo_x );
+	if( file_x ) reader.readAsText( file_x );
 }
-/* después de construir "preg_v", prepara la salida
-   de la pregunta siguiente al usuario */
-function main_cont1( preg_v ) {
+/* after to construc "qstn_v", prepare the output
+   of the next question to the user */
+function main_cont1( qstn_v ) {
 	if( ! document.querySelector( "#n0" ) ) {
 	document.querySelector( "#n2" ).insertAdjacentHTML(
 		"beforebegin",
-		'<a href = "#" id = n0 download>guardar</a>' +
+		'<a href = "#" id = n0 download>save</a>' +
 		"&nbsp;".repeat(4) +
-		'<a href = "#" id = n1>al inicio</a>' +
+		'<a href = "#" id = n1>to the start</a>' +
 		"&nbsp;".repeat(4) );
-	document.querySelector( "#n1" ).onclick = main_bucle0;
+	document.querySelector( "#n1" ).onclick = main_loop0;
 	}
-	impr_preg(  preg_v[ escoger_preg( preg_v ) ], preg_v  );
-	n0_href( preg_v );
+	prt_qstn(  qstn_v[ choose_qstn( qstn_v ) ], qstn_v  );
+	n0_href( qstn_v );
 }
-function al_rsp( preg_x, preg_v ) { return function() {
-	let marca_x = 0;
-	preg_x.rsp = new Array;
-	for( ii in preg_x.slcn )
-		preg_x.rsp[ii] = document.querySelector(
+function al_rsp( qstn_x, qstn_v ) { return function() {
+	let points_x = 0;
+	qstn_x.rsp = new Array;
+	for( ii in qstn_x.sln )
+		qstn_x.rsp[ii] = document.querySelector(
 			`#e${ii}`).value;
-	marca_x = marca( preg_x.rsp, preg_x.slcn,
-		preg_x.preg );
-	preg_x.marca = preg_marca_s( preg_x.marca, marca_x );
-	if( marca_x < 1 )
-		impr_incorr( preg_x, marca_x, preg_v );
-	else main_cont1( preg_v );
+	points_x = points( qstn_x.rsp, qstn_x.sln,
+		qstn_x.qstn );
+	qstn_x.points = qstn_points_s( qstn_x.points, points_x );
+	if( points_x < 1 )
+		prt_incorr( qstn_x, points_x, qstn_v );
+	else main_cont1( qstn_v );
 }; }

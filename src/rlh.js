@@ -1,64 +1,64 @@
-preg_v = [];
+qstn_v = [];
 ficha0 = "---";
 re0_val = ficha0 + "([^\n\t ][^\n]*):";
 
-function as_rlh( rlh_dat, preg_v ) {
-	let marca_dat = [];
+function as_rlh( rlh_dat, qstn_v ) {
+	let points_dat = [];
 	/*
-	 "rstdo"	"resultado". Funciones "as_*"  analizadores
-	 sintacticos devuelven un numero != 0 al llegar
-	 a una exención. El resultado del analizador
-	 se guarda en la estructura "rstdo" entregado
-	 a la función.*/
-	let rstdo = {};
+	 "rslt"	"result". Functions "as_*" analyzers
+	 of syntax return a number != 0 to arrive
+	 at an error. The result of the analyzer
+	 is saved in the structure "rslt"	 given
+	 to the function.*/
+	let rslt = {};
 	/*
-	 el exreg del primer marcador del archivo -
-	 llevará adelante solo espacios en blanco
-	 "[\t\n ]", y termina en un '\n'. */
+	 the regex of the first marker of the file -
+	 will take in front only empty spaces
+	 "[\t\n ]", and terminate in a '\n'. */
 	re0 = new RegExp( "^[\n\t ]*" + re0_val + '\n' );
-	if(  !( marca_dat = rlh_dat.match( re0 ) )  ) {
-		err( "la ficha que delimita las preguntas " +
-			"no se encontró en el archivo." );
+	if(  !( points_dat = rlh_dat.match( re0 ) )  ) {
+		err( "the token that delimits the questions " +
+			"file not encountered." );
 		return 1;
 	}
-	rstdo = {};
-	if(  as_marca( marca_dat[1], rstdo )  ) return 1;
+	rslt = {};
+	if(  as_points( points_dat[1], rslt )  ) return 1;
 	
-	if( as_preg_sg(
-		rlh_dat.slice( marca_dat.index + marca_dat[0].length ),
-		preg_v, rstdo.marca )
+	if( as_qstn_suc(
+		rlh_dat.slice( points_dat.index + points_dat[0].length ),
+		qstn_v, rslt.points )
 	) return 1;
 }
-function as_preg_sg( rlh_dat, preg_v, marca ) {
-	let preg_x = {};
+function as_qstn_suc( rlh_dat, qstn_v, points ) {
+	let qstn_x = {};
 	let dlmt = [];
 	re0 = new RegExp( '\n' + re0_val + '\n' );
-	// caso ya no hay mas de marcas (no hay mas preguntas)
+	// case no more delimiters (no questions remain)
 	if(  !( dlmt = rlh_dat.match( re0 ) )  ) {
-		// busca el delimitador final del formato "rlh"
+		// search the final delimiter fo the "rlh" format
 		re0 = new RegExp( '\n' + ficha0 +
 			"[^\n\t ]{1,}[\n\t ]*$" );
 		if(  !( dlmt = rlh_dat.match( re0 ) )  ) {
-			err( "no se encontró la ficha del fin " +
-				"de la lista de preguntas" );
+			err( "end token not encountered " +
+				"of the list of questions" );
 			return 1;
 		}
 		dlmt.ultimo = 1;
 	}
-	rstdo = {
-		preg: [],
-		slcn: [],
-		preg_sin_elim_esc: [],
-		slcn_sin_elim_esc: []
+	rslt = {
+		qstn: [],
+		sln: [],
+		qstn_no_elim_esc: [],
+		sln_no_elim_esc: []
 	}
-	if( as_ctdo( rlh_dat.slice( 0, dlmt.index ),
-		rstdo )  ) return 1;
-	preg_v.push( {...rstdo, marca: marca } );
+	if( as_ctnt( rlh_dat.slice( 0, dlmt.index ),
+		rslt )  ) return 1;
+	qstn_v.push( {...rslt, points: points } );
 	if( dlmt.ultimo ) return 0;
-	rstdo = {};
-	if(  as_marca( dlmt[1], rstdo )  ) return 1;
-	if( as_preg_sg(
+	rslt = {};
+	if(  as_points( dlmt[1], rslt )  ) return 1;
+	if( as_qstn_suc(
 		rlh_dat.slice( dlmt.index + dlmt[0].length ),
-		preg_v, rstdo.marca )
+		qstn_v, rslt.points )
 	) return 1;
 }

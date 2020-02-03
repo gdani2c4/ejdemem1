@@ -1,43 +1,42 @@
-/* evento mandar respuesta --> al_rsp: actualizar marca -->
-	imprimir pregunta de nuevo
- */
-function impr_preg( preg_x, preg_v ) {
+/* event send response --> al_rsp: update the points -->
+	print question from new*/
+function prt_qstn( qstn_x, qstn_v ) {
 	document.querySelector("#cnt").innerHTML =
-		preg_html( preg_x.preg ) +"&nbsp;".repeat(4) +
-		"<a href = # id = n3>seguir</a>";
+		qstn_html( qstn_x.qstn ) +"&nbsp;".repeat(4) +
+		"<a href = # id = n3>continue</a>";
 	document.querySelector("#e0").focus();
-	/* pasa también "preg_v" entero para llevarlo
-		a otras funciones mas adelante: */
+	/* pass also "qstn_v" complete to take it
+	to other functions later: */
 	document.querySelector( "#n3" ).
-		onclick = al_rsp( preg_x, preg_v );
+		onclick = al_rsp( qstn_x, qstn_v );
 }
-function impr_incorr( preg_x, marca_x, preg_v ) {
-	let rll = main_cont1.bind( undefined, preg_v );
+function prt_incorr( qstn_x, points_x, qstn_v ) {
+	let cllb = main_cont1.bind( undefined, qstn_v );
 	document.querySelector("#cnt").insertAdjacentHTML(
 		"beforeend",
-		`<p>marca: ${Math.floor(marca_x * 100)}%</p>` +
-		"<a href = # id = n4>a la solución</a>" );
+		`<p>score: ${Math.floor(points_x * 100)}%</p>` +
+		"<a href = # id = n4>to the solution</a>" );
 	for( ii of document.querySelectorAll( "input" ) )
 		ii.setAttribute( "readonly", null );
 	document.querySelector( "#n3" ).innerHTML =
-		"intentarlo de nuevo";
-	document.querySelector( "#n3" ).onclick = rll;
+		"redo";
+	document.querySelector( "#n3" ).onclick = cllb;
 	document.querySelector( "#n4" ).
-		onclick = ens_slcn( preg_x, preg_v );
+		onclick = ens_sln( qstn_x, qstn_v );
 }
-function ens_slcn( preg_x, preg_v ) {return function() {
-	let slcn = "";
-	for( ii of preg_x.slcn ) slcn += `"${ii}", `;
-	slcn = slcn.slice( 0, -2 );
+function ens_sln( qstn_x, qstn_v ) {return function() {
+	let sln = "";
+	for( ii of qstn_x.sln ) sln += `"${ii}", `;
+	sln = sln.slice( 0, -2 );
 	document.querySelector("#cnt").insertAdjacentHTML(
-		"beforeend", `<p>${slcn}</p>` );
-	// si se enseña la solución, agrega otro 0 puntos
-	preg_x.marca = preg_marca_s( preg_x.marca, 0 );
+		"beforeend", `<p>${sln}</p>` );
+	// if the solution is shown, add another 0 points
+	qstn_x.points = qstn_points_s( qstn_x.points, 0 );
 }; }
-function preg_html( preg_con_huecos ) {
+function qstn_html( qstn_con_holes ) {
 	let re0 = new RegExp( ">|<|\"|\n| ", "g" );
 	let xx = 0;
-	let rstdo = "";
+	let rslt = "";
 	let ahtml = {
 		"&":	"&amp;",
 		"<":	"&lt;",
@@ -46,44 +45,44 @@ function preg_html( preg_con_huecos ) {
 		"\n":	"<br>",
 		" ":	"&nbsp;"
 	};
-	for( ii of preg_con_huecos ) {
-		if( ii == undefined ) rstdo +=
+	for( ii of qstn_con_holes ) {
+		if( ii == undefined ) rslt +=
 			`<input id = "e${xx++}">`;
 		else
-			rstdo += ii.replace(
+			rslt += ii.replace(
 				re0,
-//				cambio al sintaxis "new RegExp"
-//				por un limite de un analizador sintactico
-//				de traducción
+//				change of syntax "new RegExp"
+//				because of a limit of the parser
+//				of the translation
 //				/>|<|"|&|\n| /g,
 				function(cc) { return ahtml[cc]; } );
 	}
-	return rstdo;
+	return rslt;
 }
-function escoger_preg( preg_v ) {
-	let pregv_marca = [];
-	for( ii of preg_v ) pregv_marca.push( ii.marca );
-	return pregv_marca.indexOf(  Math.min(
-		...pregv_marca )  );
+function choose_qstn( qstn_v ) {
+	let qstnv_points = [];
+	for( ii of qstn_v ) qstnv_points.push( ii.points );
+	return qstnv_points.indexOf(  Math.min(
+		...qstnv_points )  );
 }
-/* marca - califica la respuesta "rsp" dado la solución
-   "slcn" y el texto de la pregunta
+/* points - gives points to the responce "rsp" given the solution
+   "sln" and the text of the question
  */
-function marca( rsp, slcn, texto ) {
-	let marca_x = 0;
-	for( ii in slcn )
-		if( slcn[ ii ] == rsp[ ii ] )
-			marca_x++;
-	return marca_x / slcn.length;
+function points( rsp, sln, texto ) {
+	let points_x = 0;
+	for( ii in sln )
+		if( sln[ ii ] == rsp[ ii ] )
+			points_x++;
+	return points_x / sln.length;
 }
-function preg_marca_s( val, delta ) {
+function qstn_points_s( val, delta ) {
 		return (1 - theta) * val + theta * delta;
 }
-function n0_href( preg_v ) {
-	let rstdo = { rlh_dat: "" };
-	rlh_gen( preg_v, rstdo );
-	// utf-16 a utf-8 hexadécimo binario de formato url-datos
-	rstdo.rlh_dat = rstdo.rlh_dat.replace(
+function n0_href( qstn_v ) {
+	let rslt = { rlh_dat: "" };
+	rlh_gen( qstn_v, rslt );
+	// utf-16 to utf-8 hexadecimal of the data-url
+	rslt.rlh_dat = rslt.rlh_dat.replace(
 		/.|\n/g, function ( xx ) {
     xx = parseInt( xx.charCodeAt(), 10 );
     if( xx < 0x80 ) return "%" + xx.toString(16).
@@ -93,11 +92,11 @@ function n0_href( preg_v ) {
 			padStart( 2, 0 ) +
         "%" + ( xx - (xx >>> 6 << 6) + 0x80 ).toString(16).
 			padStart( 2, 0 );
-    else { console.log("carácter desconocido"); return 1; }
+    else { console.log("unrecognized character"); return 1; }
 	} );
 	document.querySelector("#n0").setAttribute("href",
-		"data:text/plain;charset=UTF-8," + rstdo.rlh_dat);
+		"data:text/plain;charset=UTF-8," + rslt.rlh_dat);
 }
-function err( cda ) {
-	document.querySelector( "#err" ).innerHTML = cda;
+function err( str ) {
+	document.querySelector( "#err" ).innerHTML = str;
 }
