@@ -60,9 +60,10 @@ to wrte a file of exercises
 ---0:
 100 {flying} and not 1 in {the hand}
 ---0:
-the use of {henna} (from the semitic word "khina")
-is in its origin to paint the skin in ceremonies
-in the {middle east} and {India}
+Busca muger de talla, de cabeça pequeña;
+cabellos amarillos, non sean de {alheña};
+...
+("Libro de Buen Amor", Arcipreste de Hita)
 ---end
 ```
 
