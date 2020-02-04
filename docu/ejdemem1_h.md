@@ -53,7 +53,7 @@
 
 - convertir la pregunta en html
 
-    `preg_html( preg_con_huecos )`
+    `preg_html( preg_con_agujeros )`
 
     utilizada en `impr_preg()`,
     devuelve el html en una cadena, de una cadena
@@ -102,7 +102,7 @@
 ## analiza de sintaxis
 
 análisis de sintaxis y generación del formato de archivo de texto
-.rlh, las siglas de "rellenar los huecos"
+.rlh, las siglas de "rellenar los agujeros"
 
 ### rlh.js
 
@@ -110,7 +110,7 @@ análisis de sintaxis y generación del formato de archivo de texto
 
     `as_rlh( rlh_dat, preg_v )`
 
-    lee datos en el formato "rlh" (rellenar los huecos) `rlh_dat`
+    lee datos en el formato "rlh" (rellenar los agujeros) `rlh_dat`
     al vector de preguntas "preg_v". La función inicializa la
 	lectura de `rlh_dat` a `preg_v` y lo pasa a
 	`as_preg_sg()` que sigue el analisis de `rlh_dat`

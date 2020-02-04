@@ -14,7 +14,8 @@ function prt_incorr( qstn_x, points_x, qstn_v ) {
 	let cllb = main_cont1.bind( undefined, qstn_v );
 	document.querySelector("#cnt").insertAdjacentHTML(
 		"beforeend",
-		`<p>score: ${Math.floor(points_x * 100)}%</p>` +
+		"the response coincides with the solution by" +
+			` ${Math.floor(points_x * 100)}%</p>` +
 		"<a href = # id = n4>to the solution</a>" );
 	for( ii of document.querySelectorAll( "input" ) )
 		ii.setAttribute( "readonly", null );

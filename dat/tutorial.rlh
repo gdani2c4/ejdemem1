@@ -1,5 +1,5 @@
 ---0:
-ejercicio de memoria 1: rellenar los {huecos}
+ejercicio de memoria 1: rellenar los {agujeros}
 cada pregunta empieza con un renglón de la forma:
 
 \---[marca]:
@@ -12,7 +12,7 @@ archivo nuevo, pondrás en dicho renglón un 0 así:
 
 pero puede ser cualquer valor entre 0 y 1 inclusivo
 
-luego escribes la pregunta misma, con los huecos
+luego escribes la pregunta misma, con los agujeros
 entre corchetes \{, \}, como así:
 
 \---0:
@@ -45,7 +45,7 @@ a b \{c\} d
 \---fin
 
 para ver como sale el ejemplo, puede:
-a - escribir "huecos" en el cuadrado de entrada al inicio de
+a - escribir "agujeros" en el cuadrado de entrada al inicio de
 esta página y luego ir al enlace "seguir" abajo
 
 o,

@@ -29,7 +29,7 @@ function leer_a_preg( archivo_x )
 {
 	/*
 	 preg_v.preg	cadena partida (un arreglo) por valores
-	 	"undefined" donde se meten las soluciones / huecos
+	 	"undefined" donde se meten las soluciones / agujeros
 
 	 preg_v.slcn	las soluciones, en el orden en el
 		que aparecen en la pregunta

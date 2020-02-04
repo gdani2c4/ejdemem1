@@ -40,7 +40,7 @@
         "function leer_a_preg( preg_v, archivo_x ) {":
 "",
 
-        "\n\t preg_v.preg\tcadena partida (un arreglo) por valores\n\t \t\"undefined\" donde se meten las soluciones / huecos\n\n\t preg_v.slcn\tlas soluciones, en el orden en el\n\t\tque aparecen en la pregunta\n\n\t preg_v.preg_sin_elim_esc, preg_v.slcn_sin_elim_esc\n\t\tlas preguntas, soluciones sin reducir coincidencias\n\t\tdel carácter de escape '\\'\n\t ":
+        "\n\t preg_v.preg\tcadena partida (un arreglo) por valores\n\t \t\"undefined\" donde se meten las soluciones / agujeros\n\n\t preg_v.slcn\tlas soluciones, en el orden en el\n\t\tque aparecen en la pregunta\n\n\t preg_v.preg_sin_elim_esc, preg_v.slcn_sin_elim_esc\n\t\tlas preguntas, soluciones sin reducir coincidencias\n\t\tdel carácter de escape '\\'\n\t ":
 "\n\t preg_v.preg\tdivided string (an array) of values\n\t \t\"undefined\" where the solutions / holes\n\n\t preg_v.slcn\tthe solutions, in the order that\n\tthey appearin the question\n\n\t preg_v.preg_sin_elim_esc, preg_v.slcn_sin_elim_esc\n\t\tthe questions, solutions without to reduce matches\n\t\tof the escape character '\\'\n\t ",
 
         " después de construir \"preg_v\", prepara la salida\n   de la pregunta siguiente al usuario ":
@@ -74,8 +74,7 @@
 "",
 
         "<a href = # id = n3>seguir</a>":
-
-       "<a href = # id = n3>continue</a>",
+"<a href = # id = n3>continue</a>",
 
         "#e0":
 "",
@@ -89,11 +88,14 @@
         "beforeend":
 "",
 
-        "<p>marca: ${Math.floor(marca_x * 100)}%</p>":
-        "<p>score: ${Math.floor(marca_x * 100)}%</p>",
+        "<p>la respuesta coincide con la solución a ":
+"the response coincides with the solution by",
+
+        " ${Math.floor(marca_x * 100)}%</p>":
+"",
 
         "<a href = # id = n4>a la solución</a>":
-        "<a href = # id = n4>to the solution</a>",
+"<a href = # id = n4>to the solution</a>",
 
         "input":
 "",
@@ -255,7 +257,7 @@
 " save the solution between '{', '}'",
 
         " marca el hueco para la solución":
-" mark the hole to be solved",
+"",
 
         " leer_hf\tanalizador sintáctico de cadenas":
 " leer_ht\t parser of strings",
@@ -326,7 +328,7 @@
         "impr_":
 "prt_",
 
-        "huecos":
+        "agujeros":
 "holes",
 
         "escoger":
@@ -352,6 +354,5 @@
 
         "rll":
 "cllb"
-
     }
 }

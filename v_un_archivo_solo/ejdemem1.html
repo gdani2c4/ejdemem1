@@ -1,5 +1,5 @@
 <!--
-	"ejercicio de memoria 1: rellenar los huecos"
+	"ejercicio de memoria 1: rellenar los agujeros"
 	versión de un archivo solo - para empezar, descarga sólo
 	este archivo, y el tutorial "tutorial.rlh" que está
 	en el mismo directorio que éste.
@@ -108,7 +108,7 @@ function escoger_preg( preg_v ) {
 	return pregv_marca.indexOf(  Math.min(
 		...pregv_marca )  );
 }
-function preg_html( preg_con_huecos ) {
+function preg_html( preg_con_agujeros ) {
 	let xx = 0;
 	let rstdo = "";
 	let ahtml = {
@@ -119,7 +119,7 @@ function preg_html( preg_con_huecos ) {
 		"\n":	"<br>",
 		" ":	"&nbsp;"
 	};
-	for( ii of preg_con_huecos ) {
+	for( ii of preg_con_agujeros ) {
 		if( ii == undefined ) rstdo +=
 			`<input id = "e${xx++}">`;
 		else rstdo += ii.replace(
@@ -260,7 +260,7 @@ function as_ctdo( ctdo_dat, ctdo_rstdo ) {
 	// guarda la solución entre las '{', '}'
 	ctdo_rstdo.slcn.push( rstdo.cda );
 	ctdo_rstdo.slcn_sin_elim_esc.push( rstdo.sin_elim_esc );
-	// marca el hueco para la solución
+	// marca el agujero para la solución
 	ctdo_rstdo.preg.push(undefined);
 	ctdo_rstdo.preg_sin_elim_esc.push( undefined );
 	ctdo_dat = ctdo_dat.slice( rstdo.nn + 1 );

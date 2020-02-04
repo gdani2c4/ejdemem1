@@ -31,7 +31,7 @@ function as_ctnt( ctnt_dat, ctnt_rslt ) {
 	// save the solution between '{', '}'
 	ctnt_rslt.sln.push( rslt.str );
 	ctnt_rslt.sln_no_elim_esc.push( rslt.no_elim_esc );
-	// mark the hole to be solved
+	// points el hueco para la solución
 	ctnt_rslt.qstn.push(undefined);
 	ctnt_rslt.qstn_no_elim_esc.push( undefined );
 	ctnt_dat = ctnt_dat.slice( rslt.nn + 1 );

@@ -35,7 +35,7 @@ function ens_slcn( preg_x, preg_v ) {return function() {
 	// si se enseña la solución, agrega otro 0 puntos
 	preg_x.marca = preg_marca_s( preg_x.marca, 0 );
 }; }
-function preg_html( preg_con_huecos ) {
+function preg_html( preg_con_agujeros ) {
 	let re0 = new RegExp( ">|<|\"|\n| ", "g" );
 	let xx = 0;
 	let rstdo = "";
@@ -47,7 +47,7 @@ function preg_html( preg_con_huecos ) {
 		"\n":	"<br>",
 		" ":	"&nbsp;"
 	};
-	for( ii of preg_con_huecos ) {
+	for( ii of preg_con_agujeros ) {
 		if( ii == undefined ) rstdo +=
 			`<input id = "e${xx++}">`;
 		else
